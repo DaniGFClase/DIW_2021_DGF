@@ -1,0 +1,23 @@
+body{
+    margin-left: 10px;
+}
+
+h1 {
+    box-sizing: border-box;
+    padding: 0.5em;
+    border: 2px solid blue;
+}
+    
+h2{
+    margin-top: 0.75em;
+    padding-left: 0.5em;
+    border: 2px solid grey;
+}
+    
+ul{
+    border: 2px solid rgb(114, 248, 102);
+}
+    
+li{
+    margin-top: 1em;
+}
