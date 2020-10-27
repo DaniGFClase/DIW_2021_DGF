@@ -1,0 +1,17 @@
+.cont {
+    display: flex;
+    flex-direction: column-reverse;  
+    background-color: #7FFFD4;
+    border: 1px solid black;  
+  }
+
+
+  .cont > div {
+    align-self: center;
+    background-color: #FF4500;
+    width: 6rem;
+    margin: 0.7rem;
+    text-align: center;
+    line-height: 2.5rem;
+    
+  }

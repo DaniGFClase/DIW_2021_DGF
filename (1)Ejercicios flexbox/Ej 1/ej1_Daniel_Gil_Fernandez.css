@@ -1,0 +1,29 @@
+
+  #normal {
+    display: inline-flex;
+    flex-direction: row;
+  }
+
+  #inverso {
+    display: inline-flex;
+    flex-direction: row-reverse;
+  }
+
+  .cont > div {
+    
+    background-color: #FF4500;
+    width: 6rem;
+    margin: 0.7rem;
+    text-align: center;
+    line-height: 2.5rem;
+  }
+
+  .cont {
+    position: relative;
+    height: 10em;
+    background-color: #7FFFD4;
+    border: 1px solid black;  
+    
+  }
+
+  
