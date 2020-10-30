@@ -1,0 +1,43 @@
+
+  .cont{
+    width: 600px;
+    height: 5rem;
+    background-color:#666666;
+    border: 1px solid cyan;
+    display: flex;		  
+    flex-direction: row;
+    align-items: baseline;	
+    align-items: flex-end;
+
+    
+  }
+  
+  .cont > div{
+    background-color:#FF4500;
+   
+    width: 6rem;
+    margin: 1em;
+    margin-bottom: 0em;
+    text-align: center;
+
+  }
+
+  .cont > div:first-child{
+   margin-left: 0em;
+  }
+
+  .cont > div:last-child{
+    margin-right: 0em;
+   }
+  div.cont > div:nth-child(3n) {
+    margin-top: 0em;
+    align-self: flex-start;
+}
+
+  
+ 
+  .cont > div:last-child{
+    align-items: baseline;	
+    align-content: center;	
+  }
+  
