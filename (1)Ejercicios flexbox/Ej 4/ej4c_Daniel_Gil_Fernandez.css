@@ -1,0 +1,32 @@
+
+  .cont{
+    width: 50%;
+    height: 5rem;
+    background-color:#666666;
+    border: 1px solid cyan;
+    display: flex;		  
+ 
+    align-items: center;
+
+   
+    flex-wrap: wrap;
+  
+  }
+  
+  .cont > div{
+    background-color:#FF4500;
+    
+    width: calc(17%);
+  
+    margin: 0.7rem;		 
+    text-align: center;		
+
+  }
+
+  .cont {
+    align-items: baseline;	
+    align-content: center;	
+  }
+
+  
+  
