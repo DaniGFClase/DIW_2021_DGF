@@ -1,0 +1,50 @@
+/* Asignamos border-box a todos los elementos para evitar descuadres al asignar padding y bordes */
+*{
+	box-sizing: border-box;
+}
+
+/* Se asigna el alto del contenedor principal a 65% del alto del área de visualización (viewport) */
+#contenedor{
+	height: 65vh;
+	border: 1px solid black;
+}
+
+/* Se crea un subcontenedor para lograr el espaciado con padding si que descuadre. 
+	Otra opción sería con márgenes y empleando calc para evitar desbordes */
+div.subcontainer{
+	font-size: 22px;
+	padding: 0.5em 0.5em 0em 0.5em;
+	height: 50%;
+	display: flex;
+}	
+
+/* En el último subcontenedor se añade un padding para lograr el espaciado requerido */
+div.subcontainer:last-child{
+	padding-bottom: 0.5em;
+}
+
+/* Cajas situadas dentro del primer contenedor */
+article.caja{
+	width: 50%;
+	border: 1px dotted blue;
+}
+
+/* Listado de la primera caja del contenedor */
+article.caja ol{
+	margin: 0;
+	padding: 0;
+	list-style-type: upper-roman;
+	list-style-position: inside;
+}
+
+/* Quitamos uno de los bordes que se solapan para que quede mejor el diseño */
+article.caja:first-child{
+	border-right: none;
+}
+	
+
+/* Cajas situadas dentro del segundo contenedor */
+article.contenido{	
+	border: 1px dotted red;	
+	width: 100%;
+}

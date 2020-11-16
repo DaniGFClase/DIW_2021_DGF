@@ -1,0 +1,37 @@
+body {
+    padding-left: 10%;
+}
+
+body>div {
+    width: 80%;
+    border: 1px solid black;
+}
+
+.cabecera {
+    position: relative;
+    border-radius: 1.5em;
+    background-color: cyan;
+}
+
+.texto {}
+
+.imagen {
+    height: 100%;
+    width: 100px;
+    position: absolute;
+    top: 0em;
+    right: 0em;
+    border: 1px solid red;
+    background-image: url(logo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.parrafo {
+    font-style: italic;
+    line-height: 1.5em;
+    margin-top: 2em;
+    text-indent: 1em;
+    text-align: justify;
+}

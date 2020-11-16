@@ -1,0 +1,38 @@
+/* Importante definir la altura en el contenedor principal con alguna unidad que no sea porcentaje. Así se calculan bien las de los elementos internos */
+.main_container{		
+	border: 1px solid black;
+	padding: 0.5rem;
+	height: 80vmin;
+	box-shadow: 2px 2px 5px blue;
+}
+
+/* Con display a flex por defecto ya se situán los div de la izquierda y la derecha en en la misma línea y con flex-wrap a nowrap para que no desborde */
+#contenedor{
+	display: flex;	
+}
+
+/* Se asigna el tamaño en proporción con flex-grow el 70% */
+#izquierda{
+	flex-grow: 7;
+	margin-right: 0.5rem;
+	border: 1px solid black;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#izquierda p{
+	margin: 0;
+}
+
+#izquierda p:last-child{
+	align-self: flex-end;
+}
+
+/* Se asigna el tamaño en proporción con flex-grow el 30% */
+#derecha{
+	flex-grow: 3;
+	border: 1px solid black;
+	height: 100%;
+}
+

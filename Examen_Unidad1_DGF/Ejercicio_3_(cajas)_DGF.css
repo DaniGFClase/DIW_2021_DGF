@@ -1,0 +1,29 @@
+.principal {
+    padding: 0.5em;
+    font-size: 22px;
+    border: 1px solid black;
+    width: 66%;
+    height: 15em;
+    box-sizing: content-box;
+}
+
+.caja1 {
+    box-sizing: border-box;
+    height: 50%;
+    border: 1px blue dotted;
+}
+
+.caja2 {
+    border-right: 1px blue dotted;
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+
+.caja4 {
+    box-sizing: border-box;
+    clear: left;
+    height: calc(50% - 0.5em);
+    border: 1px red dotted;
+    margin-top: 0.5em;
+}

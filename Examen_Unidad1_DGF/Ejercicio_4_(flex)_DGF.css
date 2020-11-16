@@ -1,0 +1,36 @@
+.principal {
+    border: 1px solid black;
+    display: flex;
+    padding: 0.5em;
+    height: 40em;
+    box-shadow: 0.5em 0.25em 0.5em blue;
+    max-height: 80%;
+}
+
+.caja1 {
+    display: flex;
+    border: 1px solid black;
+    flex-grow: 7;
+    margin-right: 0.5em;
+    flex-direction: row;
+    justify-content: center;
+    align-content: start;
+}
+
+.txt1 {
+    align-self: center;
+    justify-self: center;
+}
+
+.txt2 {
+    align-self: center;
+}
+
+.txt3 {
+    align-self: flex-end;
+}
+
+.caja2 {
+    border: 1px solid black;
+    flex-grow: 3;
+}
