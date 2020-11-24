@@ -1,38 +1,68 @@
-body{
-  margin: 0;
-  padding: 0;	
+body {
+    margin: 0;
+    padding: 0;
 }
 
-div.container{
-  margin: 0 auto;	
-  font-size: 16px;
-  max-width: 1024px;
+div.container {
+    margin: 0 auto;
+    font-size: 16px;
+    max-width: 1024px;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-template-rows: auto;
 }
 
 div.container nav {
-  width: 100%;
-  background-color: green;  
-  padding: 1em;
-  box-sizing: border-box;
-  grid-area: nav; /* Importante para resolver el ejercicio */
+    width: 100%;
+    background-color: green;
+    padding: 1em;
+    box-sizing: border-box;
+    /* grid-area: nav;*/
+    grid-area: 1 / 1 / 2 / 3;
 }
 
 div.container article {
-  height: 31.25rem;
-  background-color: blue;
-  padding: 1em;
-  box-sizing: border-box;
-  background-image: url(img/content-is-like-water-5.jpg);
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  grid-area: article; /* Importante para resolver el ejercicio */
+    height: 31.25rem;
+    background-color: blue;
+    padding: 1em;
+    box-sizing: border-box;
+    background-image: url(img/content-is-like-water-5.jpg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* grid-area: article;*/
+    grid-area: 2 / 1 / 4 / 2;
 }
 
 div.container aside {
-  background-color: red;
-  padding: 1em;
-  font-size: 1em;
-  box-sizing: border-box;
-  grid-area: aside; /* Importante para resolver el ejercicio */
+    background-color: red;
+    padding: 1em;
+    font-size: 1em;
+    box-sizing: border-box;
+    /*grid-area: aside;*/
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+@media only screen and (max-width: 768px) {
+    div.container {
+        height: auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+    div.container nav {
+        /* grid-area: nav;*/
+        grid-area: 1 / 1 / 2 / 2;
+    }
+    div.container article {
+        background-image: url(img/content-is-like-water-2.jpg);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        /* grid-area: article;*/
+        grid-area: 2 / 1 / 3 / 2;
+    }
+    div.container aside {
+        /*grid-area: aside;*/
+        grid-area: 3 / 1 / 4 / 2;
+    }
 }
