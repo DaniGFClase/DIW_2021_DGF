@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr 2fr);
+    grid-template-rows: repeat(3, 1fr) 2fr 2fr;
+    grid-gap: 5px;
+    height: 25rem;
+}
+
+div.container div {
+    border: 1px solid black;
+}
+
+.num {
+    background-color: grey;
+}
+
+.dio {
+    background-color: #F9C400;
+}
