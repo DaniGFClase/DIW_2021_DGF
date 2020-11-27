@@ -22,7 +22,7 @@ body {
 }
 
 .container>main {
-    grid-area: 2 / 9 / 3 / 13;
+    grid-area: 2 / 6 / 3 / 13;
 }
 
 .container>aside {
@@ -30,5 +30,5 @@ body {
 }
 
 .container>footer {
-    grid-area: 3 / 4 / 4 / 8;
+    grid-area: 3 / 5 / 4 / 8;
 }
