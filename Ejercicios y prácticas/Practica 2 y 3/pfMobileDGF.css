@@ -1,0 +1,8 @@
+@media only screen and (max-width: 240px) {
+    body {
+        background-color: red;
+    }
+    div.arriba {
+        display: none;
+    }
+}
