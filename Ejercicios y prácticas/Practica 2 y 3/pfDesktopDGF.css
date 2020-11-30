@@ -3,6 +3,8 @@ body {
     height: 100%;
 }
 
+
+/*
 .arriba {
     display: flex;
     position: relative;
@@ -72,4 +74,4 @@ body {
 
 .esta {
     grid-area: 4 / 1 / 4 / 5;
-}
+}*/
