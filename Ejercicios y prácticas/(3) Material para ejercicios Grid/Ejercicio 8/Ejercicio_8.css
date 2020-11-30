@@ -18,7 +18,7 @@
      grid-template-columns: repeat(3, 6rem);
      grid-template-rows: repeat(2, 6rem);
      margin: 2.5rem;
-     align-content: space-around;
+     align-content: space-evenly;
      justify-content: space-between;
  }
  
