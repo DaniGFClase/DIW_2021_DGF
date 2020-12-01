@@ -1,0 +1,157 @@
+body {
+    background-color: #676d7c;
+}
+
+.cabecera {
+    background-color: #6c777a;
+    color: #ffffff;
+    padding: 15px;
+    position: relative;
+}
+
+.perfil {
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    display: flex;
+}
+
+.profP {
+    background-size: cover;
+    background-position: center;
+    padding: 16px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border: white thin solid;
+}
+
+.usrN {
+    align-self: center;
+    margin-left: 0.5em;
+    color: white;
+}
+
+.cuerpo {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu {}
+
+.roles {
+    border: 1px black solid;
+}
+
+.linea {
+    display: flex;
+    flex-direction: row;
+}
+
+.lineaImg {
+    background-size: cover;
+    background-position: center;
+    padding: 16px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border: white thin solid;
+}
+
+#top {
+    background-image: url(Fotos/Top_icon.png);
+}
+
+#mid {
+    background-image: url(Fotos/Middle_icon.png);
+}
+
+#jngl {
+    background-image: url(Fotos/Jungle_icon.png);
+}
+
+#bot {
+    background-image: url(Fotos/Bottom_icon.png);
+}
+
+#sup {
+    background-image: url(Fotos/Support_icon.png);
+}
+
+.lineaNomb {
+    align-self: center;
+    margin-left: 5em;
+    color: white;
+}
+
+.lastMatch {
+    margin-top: 1em;
+    border: 1px black solid;
+    overflow: auto;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    padding: 8px;
+    margin-bottom: 7px;
+    background-color: rgb(32, 33, 36);
+    color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.menu li:hover {
+    background-color: rgb(65, 67, 73);
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+    .cuerpo {
+        display: grid;
+        grid-template-columns: repeat(15, 1fr);
+        grid-template-rows: repeat(15, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+    }
+    .menu {
+        grid-area: 2 / 1 / 8 / 5;
+    }
+    .roles {
+        grid-area: 2 / 6 / 16 / 11;
+        border: 1px white solid;
+        box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+    }
+    #top {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+    #mid {
+        grid-area: 1 / 3 / 2 / 4;
+    }
+    #jngl {
+        grid-area: 1 / 5 / 2 / 6;
+    }
+    #bot {
+        grid-area: 2 / 2 / 3 / 3;
+    }
+    #sup {
+        grid-area: 2 / 4 / 3 / 5;
+    }
+    .lastMatch {
+        margin-top: 0em;
+        grid-area: 2 / 12 / 16 / 16;
+        border: 1px white solid;
+        box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    }
+}
