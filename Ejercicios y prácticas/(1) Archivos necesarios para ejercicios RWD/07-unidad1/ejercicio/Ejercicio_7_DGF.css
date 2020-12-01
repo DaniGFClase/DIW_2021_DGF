@@ -160,20 +160,7 @@ div.contenedor footer .social a {
 }
 
 @media only screen and (min-width: 1000px) {
-     :root {
-        --espacio: 1.2em;
-    }
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
     .contenedor {
-        background: #ccc;
-        width: 90%;
-        max-width: 1000px;
-        margin: auto;
-        /* Flexbox */
         display: flex;
         flex-flow: row wrap;
     }
