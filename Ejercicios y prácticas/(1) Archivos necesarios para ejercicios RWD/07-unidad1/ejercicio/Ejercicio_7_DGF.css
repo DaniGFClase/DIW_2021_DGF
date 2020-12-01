@@ -285,7 +285,7 @@ div.contenedor footer .social a {
         display: flex;
         justify-content: space-between;
         flex-direction: row;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
     }
     /* Enlaces comunes de cabecera y pie de página */
     div.contenedor .links a {
@@ -304,6 +304,7 @@ div.contenedor footer .social a {
     div.contenedor header .logo {
         color: #fff;
         font-size: 2em;
+        text-align: start;
     }
     div.contenedor header .logo a {
         color: #fff;
