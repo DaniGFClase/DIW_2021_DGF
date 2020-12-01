@@ -48,6 +48,7 @@ body {
 .linea {
     display: flex;
     flex-direction: row;
+    cursor: pointer;
 }
 
 .lineaImg {
@@ -128,25 +129,6 @@ body {
         grid-area: 2 / 6 / 16 / 11;
         border: 1px white solid;
         box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-        grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        grid-column-gap: 0px;
-        grid-row-gap: 0px;
-    }
-    #top {
-        grid-area: 1 / 1 / 2 / 2;
-    }
-    #mid {
-        grid-area: 1 / 3 / 2 / 4;
-    }
-    #jngl {
-        grid-area: 1 / 5 / 2 / 6;
-    }
-    #bot {
-        grid-area: 2 / 2 / 3 / 3;
-    }
-    #sup {
-        grid-area: 2 / 4 / 3 / 5;
     }
     .lastMatch {
         margin-top: 0em;
