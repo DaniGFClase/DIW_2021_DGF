@@ -234,7 +234,8 @@ div.contenedor footer .social a {
         /* Flexbox */
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: space-evenly;
+        flex-direction: row;
     }
     div.contenedor footer .links {
         background: #c0392b;
