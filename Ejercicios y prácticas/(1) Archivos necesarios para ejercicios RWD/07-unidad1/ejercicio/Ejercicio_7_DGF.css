@@ -148,112 +148,14 @@ div.contenedor footer .social a {
 }
 
 @media only screen and (min-width: 800px) {
-    div.contenedor header {
-        /* Flexbox y alineación*/
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-    }
-    /* Enlaces comunes de cabecera y pie de página */
-    div.contenedor .links a {
-        display: inline-block;
-        background: #c0392b;
-        color: #fff;
-        text-align: center;
-        text-decoration: none;
-        padding: 0.7em;
-        flex-grow: 1;
-    }
-    div.contenedor .links a:hover {
-        background: #e74c3c;
-    }
-    /* Estilos de la cabecera */
-    div.contenedor header .logo {
-        background: #2c3e50;
-        width: 100%;
-        text-align: center;
-        color: #fff;
-        font-size: 2em;
-    }
-    div.contenedor header .logo a {
-        color: #fff;
-        text-decoration: none;
-        line-height: 1.5em;
-        /* Crece proporcionamente con el tamaño de la fuente definido anteriormente */
-    }
-    div.contenedor header .links {
-        display: flex;
-        align-items: center;
-    }
-    /* Estilos de la sección principal */
-    div.contenedor section.main {
-        background: #fff;
-        padding: var(--espacio);
-        display: flex;
-        flex: 1 1 70%;
-    }
-    div.contenedor section.main article {
-        margin-bottom: var(--espacio);
-        padding-bottom: var(--espacio);
-        border-bottom: 1px solid #000;
-        margin: 1.2em;
-    }
     /* Estilos de la barra lateral */
     div.contenedor aside {
-        background: #e67e22;
-        padding: calc(var(--espacio) / 2);
-        /*FLEX*/
-        flex: 1 1 30%;
-        display: flex;
-        flex-wrap: wrap;
         flex-direction: row;
-        justify-content: flex-start;
-    }
-    div.contenedor aside .widget {
-        background: #d35400;
-        height: 9rem;
-        margin: 10px;
-        display: flex;
-        align-items: flex-end;
-        flex-grow: 1;
-    }
-    div.contenedor aside .widget .imagen {
-        background: #8f1507;
-        color: #fff;
-        height: 50%;
-        width: 50%;
-    }
-    div.contenedor aside .widget .arriba {
-        align-self: flex-start;
     }
     /* Estilos del pie de página */
     div.contenedor footer {
-        background: #2c3e50;
-        width: 100%;
-        padding: var(--espacio);
-        /* Flexbox */
-        display: flex;
-        flex-wrap: wrap;
         justify-content: space-evenly;
         flex-direction: row;
-    }
-    div.contenedor footer .links {
-        background: #c0392b;
-        display: flex;
-        order: 1;
-        /* Para poner en práctica order, no se pide realmente */
-    }
-    div.contenedor footer .social {
-        background: #e67e22;
-        display: flex;
-        order: 2;
-    }
-    div.contenedor footer .social a {
-        color: #fff;
-        text-decoration: none;
-        text-align: center;
-        padding: 0.7em;
-        flex-grow: 1;
     }
 }
 
