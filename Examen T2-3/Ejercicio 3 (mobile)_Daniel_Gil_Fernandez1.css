@@ -13,10 +13,17 @@ body {
 
 #cabecera {
     height: 30%;
+    margin-bottom: 0.5em;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(15, 15, 83);
+}
+
+.foto {
     background-image: url(img/opera-small.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    margin-bottom: 0.5em;
+    width: 100%;
 }
 
 .menu {
@@ -31,12 +38,11 @@ body {
 }
 
 @media only screen and (min-width: 768px) {
-    #cabecera {
-        height: 30%;
+    .foto {
         background-image: url(img/opera-medium.jpg);
         background-repeat: no-repeat;
-        background-position: center;
-        margin-bottom: 0.5em;
+        background-size: cover;
+        width: 90%;
     }
     .menu {
         grid-template-columns: repeat(2, 1fr);
@@ -47,8 +53,11 @@ body {
 }
 
 @media only screen and (min-width: 992px) {
-    #cabecera {
+    .foto {
         background-image: url(img/opera-large.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 70%;
     }
     .menu {
         grid-template-columns: repeat(3, 1fr);
