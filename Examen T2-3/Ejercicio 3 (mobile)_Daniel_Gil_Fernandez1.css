@@ -1,0 +1,62 @@
+html,
+body {
+    height: 100%;
+}
+
+.centrado {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#cabecera {
+    height: 30%;
+    background-image: url(img/opera-small.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 0.5em;
+}
+
+.menu {
+    display: grid;
+    grid-gap: 0.5em;
+    height: 50%;
+}
+
+.menu div.menu-item {
+    background-color: rgb(97, 16, 16);
+    color: white;
+}
+
+@media only screen and (min-width: 768px) {
+    #cabecera {
+        height: 30%;
+        background-image: url(img/opera-medium.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        margin-bottom: 0.5em;
+    }
+    .menu {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-gap: 0.5em;
+        height: 50%;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    #cabecera {
+        background-image: url(img/opera-large.jpg);
+    }
+    .menu {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-gap: 0.5em;
+        height: 50%;
+    }
+    .m4 {
+        grid-column: 2/3;
+    }
+}
