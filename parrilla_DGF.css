@@ -1,0 +1,113 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filt {
+    border: 1px solid #000;
+    height: 50px;
+    margin: 4px;
+    display: flex;
+    -webkit-box-shadow: 10px 10px 5px 2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 5px 2px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 10px 5px 2px rgba(0, 0, 0, 0.75);
+}
+
+.but {
+    border: 1px solid #000;
+    width: 250px;
+    margin: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.cart {
+    margin: 4px;
+    overflow-X: scroll;
+    display: flex;
+    flex-direction: row;
+    -webkit-box-shadow: 10px 10px 5px 2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 5px 2px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 10px 5px 2px rgba(0, 0, 0, 0.75);
+    color: white;
+    height: 250px;
+    width: 50%;
+}
+
+.pel {
+    border: 1px solid #000;
+    width: 250px;
+    height: 250px;
+    margin: 4px;
+    cursor: pointer;
+    float: left;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.fot {
+    border: 1px solid #000;
+    width: 95%;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+}
+
+.tex {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.vid {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(100, 100, 100, 0.8);
+    z-index: 99999;
+    opacity: 0;
+    -webkit-transition: var(--t1);
+    -moz-transition: var(--t1);
+    transition: var(--t1);
+    display: none;
+    cursor: pointer;
+}
+
+.vid>div {
+    width: 400px;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+    background: #fff;
+    background: -moz-linear-gradient(#fff, #999);
+    background: -webkit-linear-gradient(#fff, #999);
+    background: -o-linear-gradient(#fff, #999);
+}
+
+.cerrar {
+    width: 24px;
+    text-align: center;
+    line-height: 25px;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    position: absolute;
+    right: -12px;
+    top: -10px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    background: #606061;
+    -moz-box-shadow: var(--t2);
+    -webkit-box-shadow: var(--t2);
+    box-shadow: var(--t2);
+}
+
+.cerrar:hover {
+    background: #00d9ff;
+}
