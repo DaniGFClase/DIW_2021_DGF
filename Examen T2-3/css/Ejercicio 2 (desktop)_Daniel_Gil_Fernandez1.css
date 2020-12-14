@@ -13,6 +13,10 @@
 }
 
 .menu {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: 0px;
     margin-left: 1em;
 }
 
@@ -41,6 +45,7 @@
 #cabecera {
     background-color: lightblue;
     margin: auto;
+    position: relative;
 }
 
 
@@ -101,6 +106,12 @@
 }
 
 @media only screen and (max-width: 554px) {
+    .menu {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        margin-left: 1em;
+    }
     #izquierda {
         width: 100%;
     }
@@ -110,6 +121,12 @@
 }
 
 @media only screen and (max-width: 768px) {
+    .menu {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        margin-left: 1em;
+    }
     #cabecera {
         display: flex;
         align-items: center;
