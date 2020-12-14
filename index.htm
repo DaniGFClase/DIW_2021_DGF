@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exper2 DGF</title>
+    <link rel="stylesheet" href="parrilla_DGF.css">
+    <link rel="stylesheet" href="parrilla_Animaciones_DGF.css">
+</head>
+
+
+<script>
+    var lista = [];
+    var cont = 0;
+    var tit = ['Legends-Never-Die', 'Giants', 'Pop-Stars', 'Rise', 'Phoenix', 'Warriors', 'Awaken'];
+    var dur = ['2:58', '3:19', '3:23', '3:31', '3:28', '2:51', '3:29'];
+    var fotos = ['Fotos/LND.jpg', 'Fotos/G.jpg', 'Fotos/KDA.jpg', 'Fotos/R.jpg', 'Fotos/P.jpg', 'Fotos/W.jpg', 'Fotos/A.jpg'];
+    var fech = ['14/9/2017', '10/11/2019', '3/11/2018', '26/9/2018', '8/10/2019', '9/1/2020', '21/1/2019'];
+    var url = ['r6zIGXun57U', 'sVZpHFXcFJw', 'UOxkGD8qRB4', 'fB8TyLTD7EE', 'i1IKnWDecwA', 'fmI_Ndrxy14', 'zF5Ddo9JdpY'];
+
+
+    function ficha(vid, titulo, duración, fechaS, visitas, imagen) {
+        this.vid = vid;
+        this.titulo = titulo;
+        this.duración = duración;
+        this.fechaS = fechaS;
+        this.visitas = visitas;
+        this.imagen = imagen;
+
+    }
+
+
+    function iniciar() {
+        for (let i = 0; i < tit.length; i++) {
+
+            var vid = url[i];
+            var titulo = tit[i];
+            var duración = dur[i];
+            var fechaS = fech[i].toString();
+            var visitas = Math.floor(Math.random() * 1000).toString();
+            var imagen = fotos[i];
+
+            console.log("video " + vid);
+
+            var obj = new ficha(vid, titulo, duración, fechaS, visitas, imagen);
+
+            lista.push(obj);
+
+        }
+        creaNodoFiltro();
+        creaNodoCartel();
+
+
+    }
+
+    for (obj of lista) {
+        arrTit[i] = obj.titulo;
+        i++;
+    }
+
+
+    function clickCaja() {
+        window.alert("Alerta");
+    }
+
+    function creaNodoFiltro() {
+        var filt = document.createElement('div');
+        filt.className = 'filt';
+
+        filt.appendChild(divNormal());
+        filt.appendChild(botAlfa());
+        filt.appendChild(botFecha());
+        filt.appendChild(botVisit());
+        document.body.appendChild(filt);
+        return filt;
+    }
+
+    function divNormal() {
+        var but = document.createElement('div');
+        but.className = 'but';
+        but.innerHTML = 'Filtros ';
+
+        return but;
+    }
+
+
+
+    function botAlfa() {
+        var but = document.createElement('button');
+        but.className = 'but';
+        but.innerHTML = 'Albabetico ';
+
+
+        but.addEventListener("click", ordenAlfa);
+
+        return but;
+    }
+
+    function ordenAlfa() {
+        document.getElementById("cart" + cont).style.display = "none";
+        document.getElementById("cart" + cont).id = "cart" + (cont++);
+        cont++;
+        lista.sort(ordAlfa);
+
+        creaNodoCartel();
+    }
+
+
+
+    function botFecha() {
+        var but = document.createElement('button');
+        but.className = 'but';
+        but.innerHTML = 'Fecha ';
+
+        but.addEventListener("click", ordenFecha)
+
+        return but;
+    }
+
+    function ordenFecha() {
+        document.getElementById("cart" + cont).style.display = "none";
+        document.getElementById("cart" + cont).id = "cart" + (cont++);
+        cont++;
+        lista.sort(ordFecha);
+
+        creaNodoCartel();
+    }
+
+
+    function botVisit() {
+        var but = document.createElement('button');
+        but.className = 'but';
+        but.innerHTML = 'Visitas ';
+
+        but.addEventListener("click", ordenVisitas)
+
+        return but;
+    }
+
+
+    function ordenVisitas() {
+        document.getElementById("cart" + cont).style.display = "none";
+        document.getElementById("cart" + cont).id = "cart" + (cont++);
+        cont++;
+        lista.sort(ordVis);
+
+        creaNodoCartel();
+    }
+
+
+    function creaNodoCartel() {
+        var cart = document.createElement('div');
+        cart.id = "cart" + cont;
+        cart.className = 'cart';
+
+
+
+        for (obj of lista) {
+            console.log("This video " + obj.vid);
+            cart.appendChild(creaNodoPel(obj.titulo, obj.duración, obj.fechaS, obj.visitas, obj.imagen, obj.vid));
+        }
+        document.body.appendChild(cart);
+        return cart;
+    }
+
+    function creaNodoPel(titulo, duración, fechaS, visitas, imagen, video) {
+        var pel = document.createElement('div');
+        pel.className = 'pel';
+        pel.id = titulo;
+        console.log("This video nodoPel " + video);
+        pel.vid = video;
+        pel, tit = titulo;
+        pel.addEventListener('click', abre);
+        creaNodoVideo();
+
+        pel.appendChild(creaNodoFoto(imagen));
+        pel.appendChild(creaNodoTexto(titulo, duración, fechaS, visitas));
+        return pel;
+    }
+
+    function creaNodoFoto(imagen) {
+        var fot = document.createElement('div');
+        fot.className = 'fot';
+        fot.style.backgroundImage = "url(" + imagen + ")";
+
+        return fot;
+    }
+
+    function creaNodoTexto(titulo, duración, fechaS, visitas) {
+        var tex = document.createElement('div');
+        tex.className = 'tex';
+        tex.innerHTML = titulo + "</br>" + duración + "</br>" + fechaS + "</br>" + visitas;
+
+        return tex;
+    }
+
+
+    function ordAlfa(a, b) {
+        if (a.titulo < b.titulo) {
+            return -1;
+        }
+        if (a.titulo > b.titulo) {
+            return 1;
+        }
+        return 0;
+    }
+
+    function ordFecha(a, b) {
+        if (a.fechaS < b.fechaS) {
+            return -1;
+        }
+        if (a.fechaS > b.fechaS) {
+            return 1;
+        }
+        return 0;
+    }
+
+    function ordVis(a, b) {
+        return a.visitas - b.visitas;
+    }
+
+    function creaNodoVideo() {
+        var video = document.createElement('div');
+        video.id = this.titulo + "vid";
+        video.className = 'vid';
+        video.appendChild(creaNodoIntermedio());
+        video.appendChild(creaNodoDivIfr(this.titulo + "vid"));
+        document.body.appendChild(video);
+
+        return video;
+    }
+
+    function creaNodoIntermedio() {
+        var inter = document.createElement('div');
+        inter.appendChild(creaNodoBotCerrar());
+        return inter;
+    }
+
+    function creaNodoBotCerrar(idCerr) {
+        var cerrar = document.createElement('div');
+        cerrar.botCer = idCerr;
+
+        cerrar.addEventListener('click', cierra);
+        cerrar.className = 'cerrar';
+        cerrar.innerHTML = 'X';
+
+        return cerrar;
+    }
+
+
+    function abre() {
+        console.log("titulo abre " + this.tit);
+        var ele = document.getElementById(this.tit + "vid");
+        ele.style.display = "inline";
+        ele.style.opacity = 1;
+
+        console.log("video abre " + this.vid);
+
+        var ele = document.getElementById("iframe");
+        ele.src = "http://www.youtube.com/embed/" + this.vid;
+
+    }
+
+    function cierra() {
+        var ele = document.getElementById(this.botCer);
+        ele.style.display = "none";
+        ele.style.opacity = 0;
+        var ele = document.getElementById("iframe");
+        ele.src = '';
+    }
+
+    function creaNodoDivIfr() {
+        var divIf = document.createElement('div');
+        divIf.appendChild(creaNodoIframe());
+        return divIf;
+    }
+
+
+
+    function creaNodoIframe() {
+        var iframe = document.createElement('iframe');
+        iframe.id = "iframe";
+        iframe.style.width = '1000px';
+        iframe.style.width = '500px';
+        document.body.appendChild(iframe);
+
+        return iframe;
+    }
+
+    window.onload = iniciar;
+</script>
+
+<body>
+
+</body>
+
+</html>

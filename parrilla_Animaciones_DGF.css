@@ -1,0 +1,125 @@
+#Legends-Never-Die {
+    background: linear-gradient(-45deg, #191a3a, #58caf7, #24223b);
+    background-size: 400% 400%;
+    animation: Legends-Never-Die 5s ease infinite;
+}
+
+#Giants {
+    background: linear-gradient(-45deg, #000000, #7c0707, #b90000);
+    background-size: 400% 400%;
+    animation: Giants 5s ease infinite;
+}
+
+#Pop-Stars {
+    background: linear-gradient(-45deg, #572466, #dcade4, #db1eb3);
+    background-size: 400% 400%;
+    animation: Pop-Stars 5s ease infinite;
+}
+
+#Rise {
+    background: linear-gradient(-45deg, #4b4728, #bba25d, #e4b982);
+    background-size: 400% 400%;
+    animation: Rise 5s ease infinite;
+}
+
+#Phoenix {
+    background: linear-gradient(-45deg, #411edb, #140916, #ffffff);
+    background-size: 400% 400%;
+    animation: Phoenix 8s ease infinite;
+}
+
+#Warriors {
+    background: linear-gradient(-45deg, #ffffff, #01242c, #c4c57b);
+    background-size: 400% 400%;
+    animation: Warriors 5s ease infinite;
+}
+
+#Awaken {
+    background: linear-gradient(-45deg, #f0be74, #66510c, #a39230);
+    background-size: 400% 400%;
+    animation: Giants 5s ease infinite;
+}
+
+@keyframes Legends-Never-Die {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes Giants {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes Pop-Stars {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes Rise {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes Phoenix {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes Warriors {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes Awaken {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
