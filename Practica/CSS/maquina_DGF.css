@@ -47,7 +47,6 @@ body {
 }
 
 .pantalla {
-    border: red solid 1px;
     grid-area: 5/5/13/13;
     text-align: center;
 }
