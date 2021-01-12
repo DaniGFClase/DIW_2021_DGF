@@ -47,9 +47,3 @@ botones.addEventListener('keydown', (event) => {
     }
     console.log(`key=${event.key},code=${event.code}`);
 });
-
-mando.addEventListener('keyup', (event) => {
-    document.getElementById('arcade').style.backgroundImage = "url('./CSS/Imagenes/Pantalla.png')";
-    console.log(`key=${event.key},code=${event.code}`);
-
-});

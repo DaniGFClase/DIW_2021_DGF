@@ -49,7 +49,6 @@ body {
 
 #botones {
     grid-area: 14/6/16/9;
-    background-image: url(Imagenes/Pantalla_btns.png);
     background-size: 100% 100%;
 }
 
