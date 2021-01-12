@@ -23,7 +23,7 @@ body {
     grid-template-rows: repeat(16, 1fr);
 }
 
-.instCoin {
+#instCoin {
     background: rgba(0, 0, 0, 0);
     border: none;
     grid-area: 5/3/5/5;
@@ -33,9 +33,17 @@ body {
     background-position: center;
 }
 
-.instCoin:hover {
+#instCoin:hover {
     cursor: pointer;
     background-image: url(Imagenes/boton1.jpg);
+}
+
+#joystick {
+    grid-area: 14/4/16/6;
+}
+
+#botones {
+    grid-area: 14/6/16/9;
 }
 
 .pantalla {
