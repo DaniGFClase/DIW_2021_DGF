@@ -30,16 +30,16 @@ var botones = document.getElementById('instCoin');
 botones.addEventListener('keydown', (event) => {
     switch (event.key) {
         case "a":
-            document.getElementById('arcade').style.backgroundImage = "url('./CSS/Imagenes/Pantalla_btn1.png')";
+            document.getElementById('botones').style.backgroundImage = "url('./CSS/Imagenes/Pantalla_btn1.png')";
             break;
         case "w":
-            document.getElementById('arcade').style.backgroundImage = "url('./CSS/Imagenes/Pantalla_btn2.png')";
+            document.getElementById('botones').style.backgroundImage = "url('./CSS/Imagenes/Pantalla_btn2.png')";
             break;
         case "e":
-            document.getElementById('arcade').style.backgroundImage = "url('./CSS/Imagenes/Pantalla_btn3.png')";
+            document.getElementById('botones').style.backgroundImage = "url('./CSS/Imagenes/Pantalla_btn3.png')";
             break;
         case "r":
-            document.getElementById('arcade').style.backgroundImage = "url('./CSS/Imagenes/Pantalla_btn4.png')";
+            document.getElementById('botones').style.backgroundImage = "url('./CSS/Imagenes/Pantalla_btn4.png')";
             break;
 
         default:
@@ -49,7 +49,7 @@ botones.addEventListener('keydown', (event) => {
 });
 
 mando.addEventListener('keyup', (event) => {
-    document.getElementById('arcade').style.backgroundImage = "url('./CSS/Imagenes/Pantalla.png')";
+    document.getElementById('botones').style.backgroundImage = "url('./CSS/Imagenes/Pantalla_btns.png')";
     console.log(`key=${event.key},code=${event.code}`);
 
 });
