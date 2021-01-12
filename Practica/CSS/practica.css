@@ -1,0 +1,52 @@
+html,
+body {
+    height: 99%;
+}
+
+body {
+    background-image: url(Imagenes/retroFonfo.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#arcade {
+    color: white;
+    height: 90%;
+    background-image: url(Imagenes/Pantalla.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+}
+
+.instCoin {
+    background: rgba(0, 0, 0, 0);
+    border: none;
+    grid-area: 5/3/5/5;
+    background-image: url(Imagenes/boton.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.instCoin:hover {
+    cursor: pointer;
+    background-image: url(Imagenes/boton1.jpg);
+}
+
+.pantalla {
+    border: red solid 1px;
+    grid-area: 5/5/13/13;
+    text-align: center;
+}
+
+#instruc {
+    background-color: black;
+    height: 19%;
+    color: white;
+    border: thick dotted white;
+}
