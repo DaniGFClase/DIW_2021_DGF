@@ -24,8 +24,9 @@ body {
 }
 
 #instCoin {
-    background: rgba(0, 0, 0, 0);
+    padding: 0;
     border: none;
+    background: none;
     grid-area: 5/3/5/5;
     background-image: url(Imagenes/boton.jpg);
     background-size: contain;
@@ -36,6 +37,10 @@ body {
 #instCoin:hover {
     cursor: pointer;
     background-image: url(Imagenes/boton1.jpg);
+}
+
+#instCoin:focus {
+    outline: none;
 }
 
 #joystick {
@@ -53,7 +58,7 @@ body {
 
 #instruc {
     background-color: black;
-    height: 19%;
+    height: 15%;
     color: white;
     border: thick dotted white;
 }

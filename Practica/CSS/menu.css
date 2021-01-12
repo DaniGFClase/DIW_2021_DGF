@@ -1,4 +1,40 @@
+html,
+body {
+    height: 90%;
+}
+
 body {
     background-color: black;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.insrtC {
+    text-align: center;
+    font-family: 'Courier', monospace;
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    transform: perspective(300px) scaleY(1.5) rotateX(-40deg);
+    transform-style: preserve-3d;
+    --layer-depth: 0.32em;
+    /*animacion*/
+    animation-name: spinner;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 5s;
+    /*algo*/
+    font-smooth: never;
+    -webkit-font-smoothing: none;
+}
+
+@keyframes spinner {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(-360deg);
+    }
 }
