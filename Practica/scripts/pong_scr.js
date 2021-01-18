@@ -74,10 +74,16 @@ function drawPaddle2() {
     ctx.closePath();
 }
 
-function drawScore() {
+function ptosIA() {
     ctx.font = "16px Arial";
-    ctx.fillStyle = "#0095DD";
+    ctx.fillStyle = "white";
     ctx.fillText("Score: " + ptos1, 8, 20);
+}
+
+function ptosIJ() {
+    ctx.font = "16px Arial";
+    ctx.fillStyle = "white";
+    ctx.fillText("Score: " + ptos2, canvas.width - 65, 20);
 }
 
 function draw() {
@@ -86,7 +92,8 @@ function draw() {
     drawPaddle1();
     drawPaddle2();
     collisionDetection();
-    drawScore();
+    ptosIA();
+    ptosIJ();
 
     //Rebotar arriba y abajo
     if (y + dy > canvas.height - ballRadius || y + dy < ballRadius) {
@@ -103,7 +110,7 @@ function draw() {
     }
 
     //controles J2
-    if (dx == -1) {
+    if (dx < 0) {
         if (y > (paddle2Y + paddleHeight) / 2 && paddle2Y < canvas.height - paddleHeight) {
             paddle2Y += 2;
         } else if (y < (paddle2Y + paddleHeight) / 2 && paddle2Y > 0) {
@@ -115,40 +122,34 @@ function draw() {
 
 function collisionDetection() {
     //Rebotar en las palas
-    switch (dx) {
-        case 1:
-            if (x + dx < ballRadius) {
+    if (dx > 0) {
+        if (x + dx < ballRadius) {
+            dx = -dx;
+        } else if (x + dx > canvas.width - ballRadius) {
+            if (y > paddleY && y < paddleY + paddleHeight) {
                 dx = -dx;
-            } else if (x + dx > canvas.width - ballRadius) {
-                if (y > paddleY && y < paddleY + paddleHeight) {
-                    dx = -dx;
-                } else {
-                    x = canvas.width / 2;
-                    y = canvas.height / 2;
-                    ptos1++;
-                    console.log("ptos1 = " + ptos1);
-                }
+            } else {
+                x = canvas.width / 2;
+                y = canvas.height / 2;
+                ptos1++;
+                console.log("ptos1 = " + ptos1);
             }
-            break;
-
-        case -1:
-            if (x + dx > canvas.width - ballRadius) {
+        }
+    } else {
+        if (x + dx > canvas.width - ballRadius) {
+            dx = -dx;
+        } else if (x + dx < ballRadius) {
+            if (y > paddle2Y && y < paddle2Y + paddleHeight) {
                 dx = -dx;
-            } else if (x + dx < ballRadius) {
-                if (y > paddle2Y && y < paddle2Y + paddleHeight) {
-                    dx = -dx;
-                } else {
-                    x = canvas.width / 2;
-                    y = canvas.height / 2;
-                    ptos2++;
-                    console.log("ptos2 = " + ptos2);
-                }
+            } else {
+                x = canvas.width / 2;
+                y = canvas.height / 2;
+                ptos2++;
+                console.log("ptos2 = " + ptos2);
             }
-            break;
-
-        default:
-            break;
+        }
     }
+
 }
 
 setInterval(draw, 10);
