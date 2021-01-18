@@ -86,6 +86,13 @@ function empezar_Juego() {
         ctx.fillText("Score: " + ptos1, 8, 20);
     }
 
+    function mdio() {
+        ctx.font = "16px Arial";
+        ctx.fillStyle = "red";
+        ctx.fillText("----", 0, paddle2Y + paddleHeight / 2);
+    }
+
+
     function ptosIJ() {
         ctx.font = "16px Arial";
         ctx.fillStyle = "white";
@@ -101,6 +108,7 @@ function empezar_Juego() {
         ptosIA();
         ptosIJ();
         ganar();
+        mdio();
 
         //Rebotar arriba y abajo
         if (y + dy > canvas.height - ballRadius || y + dy < ballRadius) {
@@ -118,9 +126,9 @@ function empezar_Juego() {
 
         //controles J2
         if (dx < 0) {
-            if (y > (paddle2Y + paddleHeight) / 2 && paddle2Y < canvas.height - paddleHeight) {
+            if (y > paddle2Y + paddleHeight / 2 && paddle2Y < canvas.height - paddleHeight) {
                 paddle2Y += 4;
-            } else if (y < (paddle2Y + paddleHeight) / 2 && paddle2Y > 0) {
+            } else if (y < paddle2Y + paddleHeight / 2 && paddle2Y > 0) {
                 paddle2Y -= 4;
             }
         }
