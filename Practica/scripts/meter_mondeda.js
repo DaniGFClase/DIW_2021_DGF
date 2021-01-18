@@ -1,6 +1,5 @@
 function meter_moneda() {
     var niv = 1;
-    document.getElementById("myCanvas").style.display = "block";
     document.getElementById("insrtC").style.display = "none";
     document.getElementById("menu").style.display = "block";
 

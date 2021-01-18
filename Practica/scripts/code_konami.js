@@ -11,6 +11,8 @@ document.addEventListener('keydown', (event) => {
         console.log("genio xd");
 
         document.getElementById("audio").src = "CSS/Musica/Never_Gonna_Give_You_Up.mp3"
+        var audio = document.getElementById("audio");
+        audio.play();
     }
 
 });
