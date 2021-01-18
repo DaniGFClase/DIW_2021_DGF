@@ -13,6 +13,7 @@
 
     <div id="arcade">
         <button id="instCoin" onclick="meter_moneda()"></button>
+        <button id="music" onclick="play()"></button>
 
         <div class="pantalla">
             <!--   <iframe id="frm" src="coin.html" seamless width="100%" height="100%"></iframe> -->
@@ -41,13 +42,13 @@
 
         <div id=joystick></div>
         <div id="botones"></div>
+
     </div>
-    <audio src="CSS/Musica/Levitating.ogg" autoplay></audio>
-
-
+    <audio id="audio" src="CSS/Musica/Levitating.ogg" autoplay></audio>
 
 </body>
 
+<script src="scripts/musica.js"></script>
 <script src="scripts/control_teclado.js"></script>
 <script src="scripts/code_konami.js"></script>
 <script src="scripts/meter_mondeda.js"></script>

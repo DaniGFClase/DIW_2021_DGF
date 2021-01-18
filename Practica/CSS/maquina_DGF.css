@@ -43,6 +43,27 @@ body {
     outline: none;
 }
 
+#music {
+    padding: 0;
+    border: none;
+    background: none;
+    grid-row: 2/4;
+    grid-column: 13/5;
+    background-image: url(Imagenes/cassete.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#music:hover {
+    cursor: pointer;
+    background-image: url(Imagenes/cassete1.png);
+}
+
+#music:focus {
+    outline: none;
+}
+
 #joystick {
     grid-area: 14/4/16/6;
 }
