@@ -10,7 +10,6 @@ function meter_moneda() {
 
         if (event.key == "a") {
             clearInterval(juego);
-
             empezar_Juego(niv);
         } else if (event.key == "r") {
             clearInterval(juego);

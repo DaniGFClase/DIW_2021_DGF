@@ -67,6 +67,8 @@ body {
 #next {
     grid-row: 3/4;
     grid-column: 10/11;
+    justify-self: center;
+    align-self: center;
 }
 
 #next:hover {
