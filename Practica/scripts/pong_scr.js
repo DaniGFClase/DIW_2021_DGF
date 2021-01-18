@@ -8,12 +8,12 @@ var dy = -1;
 var paddleHeight = 75;
 var paddleWidth = 10;
 var paddleY = (canvas.height - paddleHeight) / 2;
-var paddle2Y = (canvas.height - paddleHeight) / 2;
 var up1Pressed = false;
 var down1Pressed = false;
 
-var up2Pressed = false;
-var down2Pressed = false;
+var paddle2Y = (canvas.height - paddleHeight) / 2;
+var paddle2X = 0;
+
 
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
@@ -34,28 +34,6 @@ function keyUpHandler(e) {
         down1Pressed = false;
     }
 }
-/*
-        //J2
-        function keyDownHandler(e) {
-            if (e.keyCode == 87) {
-                up2Pressed = true;
-            } else if (e.keyCode == 83) {
-                down2Pressed = true;
-            }
-        }
-
-        function keyUpHandler(e) {
-            if (e.keyCode == 87) {
-                up2Pressed = false;
-            } else if (e.keyCode == 83) {
-                down2Pressed = false;
-            }
-        }
-
-
-
-*/
-
 
 
 function drawBall() {
@@ -107,24 +85,33 @@ function draw() {
 
     //controles J1
     if (up1Pressed && paddleY < canvas.height - paddleHeight) {
-        console.log("abajo " + paddleY);
         paddleY += 2;
     } else if (down1Pressed && paddleY > 0) {
-        console.log(paddleY);
         paddleY -= 2;
     }
-    /*
-                //controles J2
-                if (up2Pressed && paddle2Y < canvas.height - paddleHeight) {
-                    console.log("abajo " + paddle2Y);
-                    paddle2Y += 2;
-                } else if (down2Pressed && paddle2Y > 0) {
-                    console.log(paddle2Y);
-                    paddle2Y -= 2;
-                }
-    */
-    x += dx;
-    y += dy;
+
+    //controles J2
+    if (x < canvas.width / 2) {
+        if (y > paddle2Y && paddle2Y < canvas.height - paddleHeight) {
+            //   console.log("abajo " + paddle2Y);
+            paddle2Y += 2;
+        } else if (y < paddle2Y && paddle2Y > 0) {
+            //  console.log("arriba: " + paddle2Y);
+            paddle2Y -= 2;
+        }
+    } else {
+        if (paddle2Y < canvas.width / 2) {
+            //   console.log("mayor");
+            //paddle2Y += 2;
+        }
+        if (paddle2Y > canvas.width / 2) {
+            //   console.log("menor");
+            //paddle2Y -= 2;
+        }
+    }
+
+    console.log(x);
+
 }
 
 setInterval(draw, 10);

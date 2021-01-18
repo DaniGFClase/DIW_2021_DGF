@@ -1,3 +1,3 @@
 function changeText(id) {
-    document.getElementById("frm").src = "juegos/ball.html"
+    document.getElementById("frm").src = "juegos/pong.html"
 }
