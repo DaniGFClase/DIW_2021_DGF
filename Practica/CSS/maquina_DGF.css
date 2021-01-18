@@ -55,6 +55,16 @@ body {
 .pantalla {
     grid-area: 5/5/13/13;
     text-align: center;
+    background-color: black;
+}
+
+#frm {
+    background-color: black;
+    overflow: hidden;
+}
+
+#myCanvas {
+    background-color: black;
 }
 
 #instruc {
