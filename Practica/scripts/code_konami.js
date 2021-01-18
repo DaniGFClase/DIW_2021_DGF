@@ -1,8 +1,7 @@
-var mando = document.getElementById('instCoin');
 var code = "";
 
 var konam = " ArrowUp ArrowUp ArrowDown ArrowDown ArrowLeft ArrowRight ArrowLeft ArrowRight a w r";
-mando.addEventListener('keydown', (event) => {
+document.addEventListener('keydown', (event) => {
     console.log(event.key);
     code = code + " " + event.key;
 
@@ -11,7 +10,7 @@ mando.addEventListener('keydown', (event) => {
     if (code == konam) {
         console.log("genio xd");
 
-        document.getElementById("frm").src = "easteregg.html"
+        document.getElementById("audio").src = "CSS/Musica/Never_Gonna_Give_You_Up.mp3"
     }
 
 });
