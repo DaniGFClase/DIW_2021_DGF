@@ -11,7 +11,17 @@ up1Pressed, down1Pressed -> control de la pala
 ptos1, ptos2 -> puntuaciones
 */
 
+/*
+document.addEventListener('keydown', (event) => {
+    if (event.key == "r") {
+        empezar_Juego();
+    }
+});
+*/
+
 function empezar_Juego() {
+    document.getElementById("myCanvas").style.display = "block";
+    document.getElementById("insrtC").style.display = "none";
 
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
@@ -156,5 +166,3 @@ function empezar_Juego() {
 
     setInterval(draw, 10);
 }
-
-window.onload = empezar_Juego;
