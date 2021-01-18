@@ -48,7 +48,7 @@ body {
     border: none;
     background: none;
     grid-row: 2/4;
-    grid-column: 13/5;
+    grid-column: 8/10;
     background-image: url(Imagenes/cassete.png);
     background-size: contain;
     background-repeat: no-repeat;
@@ -64,13 +64,13 @@ body {
     outline: none;
 }
 
-#joystick {
-    grid-area: 14/4/16/6;
+#next {
+    grid-row: 3/4;
+    grid-column: 10/11;
 }
 
-#botones {
-    grid-area: 14/6/16/9;
-    background-size: 100% 100%;
+#next:hover {
+    cursor: pointer;
 }
 
 .pantalla {
