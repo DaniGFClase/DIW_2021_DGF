@@ -13,7 +13,7 @@ ptos1, ptos2 -> puntuaciones
 var juego;
 
 
-function empezar_Juego() {
+function empezar_Juego(niv) {
     document.getElementById("myCanvas").style.display = "block";
     document.getElementById("menu").style.display = "none";
 
@@ -22,8 +22,8 @@ function empezar_Juego() {
     var ballRadius = 10;
     var x = canvas.width / 2;
     var y = canvas.height / 2;
-    var dx = 1;
-    var dy = -1;
+    var dx = 2;
+    var dy = -2;
     var paddleHeight = 75;
     var paddleWidth = 10;
     var paddleY = (canvas.height - paddleHeight) / 2;
@@ -86,18 +86,19 @@ function empezar_Juego() {
         ctx.fillText("Score: " + ptos1, 8, 20);
     }
 
+    function ptosIJ() {
+        ctx.font = "16px Arial";
+        ctx.fillStyle = "white";
+        ctx.fillText("Score: " + ptos2, canvas.width - 65, 20);
+    }
+
+
     function mdio() {
         ctx.font = "16px Arial";
         ctx.fillStyle = "red";
         ctx.fillText("----", 0, paddle2Y + paddleHeight / 2);
     }
 
-
-    function ptosIJ() {
-        ctx.font = "16px Arial";
-        ctx.fillStyle = "white";
-        ctx.fillText("Score: " + ptos2, canvas.width - 65, 20);
-    }
 
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -108,6 +109,9 @@ function empezar_Juego() {
         ptosIA();
         ptosIJ();
         ganar();
+
+        console.log(niv);
+        //pto medio de la paleta
         mdio();
 
         //Rebotar arriba y abajo
@@ -127,9 +131,9 @@ function empezar_Juego() {
         //controles J2
         if (dx < 0) {
             if (y > paddle2Y + paddleHeight / 2 && paddle2Y < canvas.height - paddleHeight) {
-                paddle2Y += 4;
+                paddle2Y += niv;
             } else if (y < paddle2Y + paddleHeight / 2 && paddle2Y > 0) {
-                paddle2Y -= 4;
+                paddle2Y -= niv;
             }
         }
     }
