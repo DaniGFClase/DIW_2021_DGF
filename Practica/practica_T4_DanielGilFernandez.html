@@ -6,18 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arcade Machine</title>
     <link rel="stylesheet" href="CSS/maquina_DGF.css">
+    <link rel="stylesheet" href="CSS/menu.css">
 </head>
 
 <body>
 
     <div id="arcade">
-        <button id="instCoin" onclick="empezar_Juego()"></button>
+        <button id="instCoin" onclick="meter_moneda()"></button>
 
         <div class="pantalla">
             <!--   <iframe id="frm" src="coin.html" seamless width="100%" height="100%"></iframe> -->
             <div id='insrtC' width="480" height="320">
                 <h1>INSERT COIN</h1>
             </div>
+
+            <div id='menu'>
+                <p id="pong">PONG</p>
+                <div id="instruc">
+                    CONTROLES
+                    <p>&#8657; Flecha hacia arriba</p>
+                    <p>&#8659; Flecha hacia abajo</p>
+                    <p>A Empezar el juego</p>
+                    <p>R Acabar el juego</p>
+                    <p>Controlas la pala de la derecha y tu objetivo es marcar 3 goles</p>
+                </div>
+            </div>
+
+
             <canvas id="myCanvas" width="480" height="320"></canvas>
         </div>
 
@@ -25,8 +40,6 @@
         <div id="botones"></div>
     </div>
 
-
-    <div id="instruc"></div>
 
 </body>
 

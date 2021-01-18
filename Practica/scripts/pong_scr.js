@@ -10,18 +10,12 @@ paddleY, paddle2Y -> posicion y de la pala
 up1Pressed, down1Pressed -> control de la pala
 ptos1, ptos2 -> puntuaciones
 */
+var juego;
 
-/*
-document.addEventListener('keydown', (event) => {
-    if (event.key == "r") {
-        empezar_Juego();
-    }
-});
-*/
 
 function empezar_Juego() {
     document.getElementById("myCanvas").style.display = "block";
-    document.getElementById("insrtC").style.display = "none";
+    document.getElementById("menu").style.display = "none";
 
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
@@ -106,6 +100,7 @@ function empezar_Juego() {
         collisionDetection();
         ptosIA();
         ptosIJ();
+        ganar();
 
         //Rebotar arriba y abajo
         if (y + dy > canvas.height - ballRadius || y + dy < ballRadius) {
@@ -124,9 +119,9 @@ function empezar_Juego() {
         //controles J2
         if (dx < 0) {
             if (y > (paddle2Y + paddleHeight) / 2 && paddle2Y < canvas.height - paddleHeight) {
-                paddle2Y += 2;
+                paddle2Y += 4;
             } else if (y < (paddle2Y + paddleHeight) / 2 && paddle2Y > 0) {
-                paddle2Y -= 2;
+                paddle2Y -= 4;
             }
         }
     }
@@ -164,5 +159,16 @@ function empezar_Juego() {
 
     }
 
-    setInterval(draw, 10);
+
+    function ganar() {
+        if (ptos1 == 3) {
+            console.log("J1 g");
+            clearInterval(juego);
+        } else if (ptos2 == 3) {
+            console.log("J2 g");
+            clearInterval(juego);
+        }
+    }
+
+    juego = setInterval(draw, 10);
 }
