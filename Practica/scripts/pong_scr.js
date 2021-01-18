@@ -73,7 +73,7 @@ function draw() {
             dx = -dx;
         } else {
             //  alert("GAME OVER");
-            //    document.location.reload();
+            document.location.reload();
         }
     }
 
