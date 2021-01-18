@@ -12,13 +12,16 @@ var up1Pressed = false;
 var down1Pressed = false;
 
 var paddle2Y = (canvas.height - paddleHeight) / 2;
-var paddle2X = 0;
+
+
+var ptos1 = 0;
+var ptos2 = 0;
 
 
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 
-//J1
+//J1 controles
 function keyDownHandler(e) {
     if (e.keyCode == 40) {
         up1Pressed = true;
@@ -34,7 +37,6 @@ function keyUpHandler(e) {
         down1Pressed = false;
     }
 }
-
 
 function drawBall() {
     ctx.beginPath();
@@ -60,23 +62,21 @@ function drawPaddle2() {
     ctx.closePath();
 }
 
+function drawScore() {
+    ctx.font = "16px Arial";
+    ctx.fillStyle = "#0095DD";
+    ctx.fillText("Score: " + ptos1, 8, 20);
+}
+
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawBall();
     drawPaddle1();
     drawPaddle2();
+    collisionDetection();
+    drawScore();
 
-    if (x + dx < ballRadius) {
-        dx = -dx;
-    } else if (x + dx > canvas.width - ballRadius) {
-        if (y > paddleY && y < paddleY + paddleHeight) {
-            dx = -dx;
-        } else {
-            //  alert("GAME OVER");
-            document.location.reload();
-        }
-    }
-
+    //Rebotar arriba y abajo
     if (y + dy > canvas.height - ballRadius || y + dy < ballRadius) {
         dy = -dy;
     }
@@ -91,27 +91,59 @@ function draw() {
     }
 
     //controles J2
-    if (x < canvas.width / 2) {
-        if (y > paddle2Y && paddle2Y < canvas.height - paddleHeight) {
+    if (dx == -1) {
+        if (y > (paddle2Y + paddleHeight) / 2 && paddle2Y < canvas.height - paddleHeight) {
             //   console.log("abajo " + paddle2Y);
             paddle2Y += 2;
-        } else if (y < paddle2Y && paddle2Y > 0) {
+        } else if (y < (paddle2Y + paddleHeight) / 2 && paddle2Y > 0) {
             //  console.log("arriba: " + paddle2Y);
             paddle2Y -= 2;
         }
-    } else {
-        if (paddle2Y < canvas.width / 2) {
-            //   console.log("mayor");
-            //paddle2Y += 2;
-        }
-        if (paddle2Y > canvas.width / 2) {
-            //   console.log("menor");
-            //paddle2Y -= 2;
-        }
     }
+}
 
-    console.log(x);
 
+function collisionDetection() {
+    //Rebotar en las palas
+    switch (dx) {
+        case 1:
+            if (x + dx < ballRadius) {
+                dx = -dx;
+            } else if (x + dx > canvas.width - ballRadius) {
+                if (y > paddleY && y < paddleY + paddleHeight) {
+                    dx = -dx;
+                } else {
+                    //  alert("GAME OVER");
+                    //  document.location.reload();
+                    x = canvas.width / 2;
+                    y = canvas.height / 2;
+
+                    ptos1++;
+                    console.log("ptos1 = " + ptos1);
+                }
+            }
+            break;
+
+        case -1:
+            if (x + dx > canvas.width - ballRadius) {
+                dx = -dx;
+            } else if (x + dx < ballRadius) {
+                if (y > paddle2Y && y < paddle2Y + paddleHeight) {
+                    dx = -dx;
+                } else {
+                    //  alert("GAME OVER");
+                    //  document.location.reload();
+                    x = canvas.width / 2;
+                    y = canvas.height / 2;
+                    ptos2++;
+                    console.log("ptos2 = " + ptos2);
+                }
+            }
+            break;
+
+        default:
+            break;
+    }
 }
 
 setInterval(draw, 10);
