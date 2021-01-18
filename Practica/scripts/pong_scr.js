@@ -1,3 +1,16 @@
+/*
+canvas -> es el canvas
+ctx -> para que canvas sea en 2 d
+ballRadius -> radio de la bola
+x, y -> posicion de la bola
+dx, dy -> direccion de la bola
+paddleHeight -> altura de la pala
+paddleWidth -> ancho de la pala
+paddleY, paddle2Y -> posicion y de la pala
+up1Pressed, down1Pressed -> control de la pala
+ptos1, ptos2 -> puntuaciones
+*/
+
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 var ballRadius = 10;
@@ -12,7 +25,6 @@ var up1Pressed = false;
 var down1Pressed = false;
 
 var paddle2Y = (canvas.height - paddleHeight) / 2;
-
 
 var ptos1 = 0;
 var ptos2 = 0;
@@ -93,10 +105,8 @@ function draw() {
     //controles J2
     if (dx == -1) {
         if (y > (paddle2Y + paddleHeight) / 2 && paddle2Y < canvas.height - paddleHeight) {
-            //   console.log("abajo " + paddle2Y);
             paddle2Y += 2;
         } else if (y < (paddle2Y + paddleHeight) / 2 && paddle2Y > 0) {
-            //  console.log("arriba: " + paddle2Y);
             paddle2Y -= 2;
         }
     }
@@ -113,11 +123,8 @@ function collisionDetection() {
                 if (y > paddleY && y < paddleY + paddleHeight) {
                     dx = -dx;
                 } else {
-                    //  alert("GAME OVER");
-                    //  document.location.reload();
                     x = canvas.width / 2;
                     y = canvas.height / 2;
-
                     ptos1++;
                     console.log("ptos1 = " + ptos1);
                 }
@@ -131,8 +138,6 @@ function collisionDetection() {
                 if (y > paddle2Y && y < paddle2Y + paddleHeight) {
                     dx = -dx;
                 } else {
-                    //  alert("GAME OVER");
-                    //  document.location.reload();
                     x = canvas.width / 2;
                     y = canvas.height / 2;
                     ptos2++;
