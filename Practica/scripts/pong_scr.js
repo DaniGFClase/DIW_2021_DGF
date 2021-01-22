@@ -11,11 +11,15 @@ up1Pressed, down1Pressed -> control de la pala
 ptos1, ptos2 -> puntuaciones
 */
 var juego;
+var mC = document.getElementById('myCanvas');
+var mE = document.getElementById("menu");
+var pF = document.getElementById('pantallaFinal');
 
 
 function empezar_Juego(niv) {
-    document.getElementById("myCanvas").style.display = "block";
-    document.getElementById("menu").style.display = "none";
+    mC.style.display = "block";
+    mE.style.display = "none";
+    pF.style.display = 'none';
 
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
@@ -173,10 +177,20 @@ function empezar_Juego(niv) {
 
 
     function ganar() {
+
+
         if (ptos1 == 3) {
+            mC.style.display = 'none';
+            pF.style.display = 'block';
+            pF.innerHTML = 'J2 ' + pF.innerHTML;
+
             console.log("J1 g");
             clearInterval(juego);
         } else if (ptos2 == 3) {
+            mC.style.display = 'none';
+            pF.style.display = 'block';
+            pF.innerHTML = 'Tu ' + pF.innerHTML;
+
             console.log("J2 g");
             clearInterval(juego);
         }
