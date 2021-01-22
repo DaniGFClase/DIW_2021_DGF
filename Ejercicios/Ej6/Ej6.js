@@ -1,34 +1,42 @@
 var pxMov = document.getElementById('text');
 var cuad = document.getElementById("cuadradoM");
-var sum;
+var cuad2 = document.getElementById("cuadrado0");
 
-var domRect;
-console.log(domRect);
-
+var posCM, posCO;
 
 
 function moverI() {
-    domRect = cuad.getBoundingClientRect();
+    let sum;
 
-    sum = parseInt(pxMov.value, 10) + domRect.left;
+    posCM = cuad.getBoundingClientRect();
+
+    sum = posCM.left - parseInt(pxMov.value, 10);
     cuad.style.left = sum + 'px';
-
-    console.log(domRect.left);
 }
 
 function moverD() {
-    domRect = cuad.getBoundingClientRect();
+    let sum;
 
-    sum = parseInt(pxMov.value, 10) + domRect.right;
-    cuad.style.right = sum + 'px';
+    posCM = cuad.getBoundingClientRect();
 
-    console.log(domRect.right);
+    sum = posCM.left + parseInt(pxMov.value, 10);
+    cuad.style.left = sum + 'px';
 }
 
 function moverAr() {
+    let sum;
 
+    posCM = cuad.getBoundingClientRect();
+
+    sum = posCM.top - parseInt(pxMov.value, 10);
+    cuad.style.top = sum + 'px';
 }
 
 function moverAb() {
+    let sum;
 
+    posCM = cuad.getBoundingClientRect();
+
+    sum = posCM.top + parseInt(pxMov.value, 10);
+    cuad.style.top = sum + 'px';
 }
