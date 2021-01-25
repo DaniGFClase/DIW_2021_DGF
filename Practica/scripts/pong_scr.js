@@ -40,11 +40,11 @@ function empezar_Juego(niv) {
     var ptos2 = 0;
 
 
-    document.addEventListener("keydown", keyDownHandler, false);
-    document.addEventListener("keyup", keyUpHandler, false);
+    document.addEventListener("keydown", plsrTecla, false);
+    document.addEventListener("keyup", sltrTecla, false);
 
     //J1 controles
-    function keyDownHandler(e) {
+    function plsrTecla(e) {
         if (e.keyCode == 40) {
             up1Pressed = true;
         } else if (e.keyCode == 38) {
@@ -52,7 +52,7 @@ function empezar_Juego(niv) {
         }
     }
 
-    function keyUpHandler(e) {
+    function sltrTecla(e) {
         if (e.keyCode == 40) {
             up1Pressed = false;
         } else if (e.keyCode == 38) {
@@ -60,7 +60,7 @@ function empezar_Juego(niv) {
         }
     }
 
-    function drawBall() {
+    function dibujBola() {
         ctx.beginPath();
         ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
         ctx.fillStyle = "white";
@@ -68,7 +68,7 @@ function empezar_Juego(niv) {
         ctx.closePath();
     }
 
-    function drawPaddle1() {
+    function dibujPala1() {
         ctx.beginPath();
         ctx.rect(canvas.width - paddleWidth, paddleY, paddleWidth, paddleHeight);
         ctx.fillStyle = "white";
@@ -76,7 +76,7 @@ function empezar_Juego(niv) {
         ctx.closePath();
     }
 
-    function drawPaddle2() {
+    function dibujPala2() {
         ctx.beginPath();
         ctx.rect(0, paddle2Y, paddleWidth, paddleHeight);
         ctx.fillStyle = "white";
@@ -104,11 +104,11 @@ function empezar_Juego(niv) {
     }
 
 
-    function draw() {
+    function juego() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        drawBall();
-        drawPaddle1();
-        drawPaddle2();
+        dibujBola();
+        dibujPala1();
+        dibujPala2();
         collisionDetection();
         ptosIA();
         ptosIJ();
@@ -196,5 +196,5 @@ function empezar_Juego(niv) {
         }
     }
 
-    juego = setInterval(draw, 10);
+    juego = setInterval(juego, 10);
 }
