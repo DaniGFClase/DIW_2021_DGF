@@ -1,16 +1,20 @@
+var inter1, inter2;
+
 class blink extends HTMLElement {
     constructor() {
         super();
         this.cont = 'Prueba';
         this.baseColor = 'black';
-        this.alternativeColor = 'red';
-        this.changeInterval = 2;
+        this.alternativeColor = 'transparent';
+        this.changeInterval = 1;
         this.alt();
     }
 
 
     alt() {
-        setInterval(() => {
+        clearInterval(inter2);
+
+        inter1 = setInterval(() => {
             this.style.color = this.alternativeColor;
             this.bas();
         }, this.changeInterval * 1000);
@@ -18,7 +22,9 @@ class blink extends HTMLElement {
     }
 
     bas() {
-        setInterval(() => {
+        clearInterval(inter1);
+
+        inter2 = setInterval(() => {
             this.style.color = this.baseColor;
             this.alt();
         }, this.changeInterval * 1000);
@@ -29,7 +35,6 @@ class blink extends HTMLElement {
         this.render();
     }
 
-    // Método que modifica el contenido del componente
     render() {
         this.textContent = this.cont.toString();
     }
