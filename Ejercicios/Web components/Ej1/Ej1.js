@@ -2,13 +2,25 @@ class blink extends HTMLElement {
     constructor() {
         super();
         this.cont = 'Prueba';
-        this.addEventListener('click', () => {
-            this.clicked()
-        });
+        this.baseColor = 'black';
+        this.alternativeColor = 'red';
+        this.changeInterval = 2;
+        this.inter();
+
     }
 
-    clicked() {
-        this.cont = '++';
+
+    inter() {
+        this.style.color = this.alternativeColor;
+
+
+        setInterval(() => {
+            this.style.color = this.baseColor;
+            this.inter();
+        }, this.changeInterval * 1000);
+        console.log("a");
+        this.style.color = this.baseColor;
+        // this.inter();
         this.render();
     }
 
@@ -21,5 +33,6 @@ class blink extends HTMLElement {
         this.textContent = this.cont.toString();
     }
 }
+
 
 window.customElements.define('wc-blink', blink);
