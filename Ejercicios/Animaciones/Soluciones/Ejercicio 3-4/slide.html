@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio sobre fade</title>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="my-jQuery.js"></script>
+	<script type="text/javascript">
+		document.addEventListener("DOMContentLoaded", () => {			
+					
+			document.querySelector("#show_nowait").addEventListener("click", (e) => {	
+				let elem = e.target.nextElementSibling;
+								
+				if (getComputedStyle(elem).display === "none"){
+					slideDown(elem);		
+				} else {
+					slideUp(elem);		
+				}
+			});				
+
+			document.querySelector("#show_wait2").addEventListener("click", (e) => {
+				let elem = e.target.nextElementSibling;
+			
+				if (getComputedStyle(elem).display === "none"){
+					slideDown(elem, 2000);		
+				} else {
+					slideUp(elem, 2000);
+				}					
+			});	
+			
+			document.querySelector("#show_wait3").addEventListener("click", (e) => {
+				let elem = e.target.nextElementSibling;
+			
+				if (getComputedStyle(elem).display === "none"){
+					slideDown(elem, 3000, () => alert("Efecto más largo terminado"));		
+				} else {
+					slideUp(elem, 3000, () => alert("Efecto más largo terminado"));		
+				}	
+				
+				//Otra opción para implementar función callback es con un setTimeout
+				//setTimeout(() => alert("Finalizado"), 3000);	
+			});				
+		
+		});
+	</script>						
+	<style>
+		div{margin-right: 1em}
+		section.slide{display: flex}
+		.border{border: 1px solid black}
+		.show{background-color: red; color: white; width: 120px; height: 60px; cursor: pointer;}
+		.hide{background-color: blue; width: 120px; height: 100px; display: none;}
+	</style>
+</head>
+	
+<body>
+	<section class="slide">
+		<div>
+			<div id="show_nowait" class="show border">Mostrar capa de debajo sin esperar</div>
+			<div class="hide border"></div>	
+		</div>
+		
+		<div>
+			<div id="show_wait2" class="show border">Mostrar capa de debajo tras 2 segundos</div>
+			<div class="hide border"></div>
+		</div>
+		
+		<div>
+			<div id="show_wait3" class="show border">Mostrar capa de debajo tras 3 segundos con alert</div>
+			<div class="hide border"></div>
+		</div>			
+	</section>
+</body>
+</html>

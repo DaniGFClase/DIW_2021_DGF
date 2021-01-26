@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio sobre fade</title>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		/* jQuery es útil si realmente vamos a emplearlo en todo el JavaScript, pero no es eficiente importarlo para ejecutar solo unos efectos
+			Para ello, como se ha demostrado en ejercicios anteriores, el código de JavaScript nativo cada vez se parece más
+			Por ejemplo, querySelector, la función flecha o requestAnimationFrame nos permiten ejecutar funcionalidades parecidas
+			Además, cargar todo el código de jQuery ralentiza el rendimiento del navegador
+			Una ventaja de jQuery es la compatibilidad en diferentes navegadores, pero JavaScript ES6 cada vez tiene más soporte 
+			*/
+			
+		$(document).ready(function() {				
+					
+			$("button#mostrar").click(function() {		
+				$("section#fadeIn .hide:nth-of-type(1)").fadeIn();		
+				$("section#fadeIn .hide:nth-of-type(2)").fadeIn(2000);		
+				$("section#fadeIn .hide:nth-of-type(3)").fadeIn(3000, () => alert("Efecto más largo terminado"));		
+			});				  
+			
+			$("button#ocultar").click(function() {		
+				$("section#fadeOut .show:nth-of-type(1)").fadeOut();		
+				$("section#fadeOut .show:nth-of-type(2)").fadeOut(2000);		
+				$("section#fadeOut .show:nth-of-type(3)").fadeOut(3000, () => alert("Efecto más largo terminado"));		
+			});	
+			
+			$("#show_nowait").click(function() {
+				let $elem = $(this).next();
+				
+				if ($elem.is(":hidden")){
+					$elem.slideDown();
+				} else {
+					$elem.slideUp();
+				}		
+				
+			});
+			
+			$("#show_wait2").click(function() {
+				let $elem = $(this).next();
+				
+				if ($elem.is(":hidden")){
+					$elem.slideDown(2000);
+				} else {
+					$elem.slideUp(2000);
+				}
+			});
+			
+			$("#show_wait3").click(function() {
+				let $elem = $(this).next();
+				
+				if ($elem.is(":hidden")){
+					$elem.slideDown(3000, () => alert("Efecto más largo terminado"));
+				} else {
+					$elem.slideUp(3000, () => alert("Efecto más largo terminado"));
+				}
+			});			
+		});
+	</script>						
+	<style>
+		section[id^="fade"] .hide {display: none;}
+		button {margin-bottom: 1em}
+		div{margin-right: 1em}
+		.border{border: 1px solid black}
+		section.slide {display: flex}
+		section.slide .show{background-color: red; color: white; width: 120px; height: 60px;}
+		section.slide .hide{background-color: blue; width: 120px; height: 100px; display: none}
+	</style>
+</head>
+	
+<body>
+	<!-- Batería de pruebas basada en los ejercicios anteriores -->
+	<section id="fadeIn">
+		<div class="hide">Texto 1 inicialmente oculto</div>
+		<div class="hide">Texto 2 inicialmente oculto</div>
+		<div class="hide">Texto 3 inicialmente oculto</div>
+		
+		<button id="mostrar">Mostrar divs ocultos</button>	
+	</section>
+	
+	<section id="fadeOut">
+		<div class="show">Texto 1 inicialmente mostrado</div>
+		<div class="show">Texto 2 inicialmente mostrado</div>
+		<div class="show">Texto 3 inicialmente mostrado</div>
+	
+		<button id="ocultar">Ocultar divs mostrados</button>	
+	</section>
+	
+	<section class="slide">
+		<div>
+			<div id="show_nowait" class="show border">Mostrar capa de debajo sin esperar</div>
+			<div class="hide border"></div>	
+		</div>
+		
+		<div>
+			<div id="show_wait2" class="show border">Mostrar capa de debajo tras 2 segundos</div>
+			<div class="hide border"></div>
+		</div>
+		
+		<div>
+			<div id="show_wait3" class="show border">Mostrar capa de debajo tras 3 segundos con alert</div>
+			<div class="hide border"></div>
+		</div>			
+	</section>
+</body>
+</html>

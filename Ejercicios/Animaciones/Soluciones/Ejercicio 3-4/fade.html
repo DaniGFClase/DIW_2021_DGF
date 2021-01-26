@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio sobre fade</title>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="my-jQuery.js"></script>
+	<script type="text/javascript">
+		document.addEventListener("DOMContentLoaded", () => {			
+					
+			document.querySelector("button#mostrar").addEventListener("click", () => {					
+				fadeIn(document.querySelector("section#fadeIn .hide:nth-of-type(1)"));		
+				fadeIn(document.querySelector("section#fadeIn .hide:nth-of-type(2)"), 2000);	
+				fadeIn(document.querySelector("section#fadeIn .hide:nth-of-type(3)"), 3000, () => alert("Efecto más largo terminado"));
+				
+				//Otra opción para implementar función callback es con un setTimeout
+				//setTimeout(() => alert("Finalizado"), 3000);			
+			});				  
+			
+			document.querySelector("button#ocultar").addEventListener("click", () => {
+				//fadeOut(document.querySelector("section#fadeOut .show:nth-of-type(1)"));		
+				fadeOut(document.querySelector("section#fadeOut .show:nth-of-type(2)"), 2000);	
+				//fadeOut(document.querySelector("section#fadeOut .show:nth-of-type(3)"), 3000, () => alert("Efecto más largo terminado"));
+				
+				//Otra opción para implementar función callback es con un setTimeout
+				// setTimeout(() => alert("Finalizado"), 3000);	
+			});			
+		});
+	</script>						
+	<style>
+		.hide {opacity: 0; display: none; visibility: hidden}
+		.show {opacity: 1; display: block; visibility: visible}
+		div {display: flex}
+		button {margin-bottom: 1em}
+	</style>
+</head>
+	
+<body>
+	<section id="fadeIn">
+		<div class="hide">Texto 1 inicialmente oculto</div>
+		<div class="hide">Texto 2 inicialmente oculto</div>
+		<div class="hide">Texto 3 inicialmente oculto</div>
+		
+		<button id="mostrar">Mostrar divs ocultos</button>	
+	</section>
+	
+	<section id="fadeOut">
+		<div class="show">Texto 1 inicialmente mostrado</div>
+		<div class="show">Texto 2 inicialmente mostrado</div>
+		<div class="show">Texto 3 inicialmente mostrado</div>
+	
+		<button id="ocultar">Ocultar divs mostrados</button>	
+	</section>
+</body>
+</html>
