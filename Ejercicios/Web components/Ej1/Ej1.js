@@ -11,16 +11,12 @@ class blink extends HTMLElement {
 
 
     inter() {
-        this.style.color = this.alternativeColor;
-
 
         setInterval(() => {
-            this.style.color = this.baseColor;
-            this.inter();
+            this.style.color = this.alternativeColor;
+
         }, this.changeInterval * 1000);
-        console.log("a");
-        this.style.color = this.baseColor;
-        // this.inter();
+
         this.render();
     }
 
