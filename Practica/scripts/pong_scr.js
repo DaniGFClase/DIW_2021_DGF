@@ -177,8 +177,6 @@ function empezar_Juego(niv) {
 
 
     function ganar() {
-
-
         if (ptos1 == 3) {
             mC.style.display = 'none';
             pF.style.display = 'block';
