@@ -14,7 +14,7 @@ templateMyParagraph.innerHTML = `
 	
 
   </style>
-  <span><slot name="personal">Un marcador...</slot></span>
+  <p><slot name="personal">Un marcador...</slot></p>
 `;
 
 console.log('aaa');
