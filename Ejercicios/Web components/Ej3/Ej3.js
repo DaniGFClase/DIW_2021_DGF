@@ -2,19 +2,16 @@ const templateMyParagraph = document.createElement('template');
 
 templateMyParagraph.innerHTML = `
   <style>
-    span {
-      color: red;
-      padding: 5px;
-    }
+    
 	
 	/* Estilos que se aplican a los elementos en un slot */
-	::slotted(*){
+	::slotted(span){
         font-style: italic;
 	}
 	
 
   </style>
-  <p><slot name="personal">Un marcador...</slot></p>
+  <span><slot name="personal">Un marcador...</slot></span>
 `;
 
 console.log('aaa');
