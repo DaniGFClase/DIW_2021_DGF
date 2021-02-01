@@ -2,7 +2,10 @@ const templateMyParagraph = document.createElement('template');
 
 templateMyParagraph.innerHTML = `
   <style>
-    
+    span {
+      color: red;
+      padding: 5px;
+    }
 	
 	/* Estilos que se aplican a los elementos en un slot */
 	::slotted(span){
