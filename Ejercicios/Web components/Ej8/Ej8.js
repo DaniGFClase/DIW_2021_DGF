@@ -8,7 +8,8 @@ class ProgressBar extends HTMLElement {
     }
 
     connectedCallback() {
-        this.render(this.getAttribute('status'));
+        this.render(this.getAttribute('seconds'));
+        this.barra = this.shadowRoot.querySelector("#prog");
 
         this.shadowRoot.querySelector("#botAc").addEventListener('click', () => {
             let tiem = 0;
@@ -23,8 +24,7 @@ class ProgressBar extends HTMLElement {
             clearInterval(this.interva);
         });
 
-        this.barra = this.shadowRoot.querySelector("#prog");
-        this.tot = this.shadowRoot.querySelector("#bar");
+
     }
 
 
@@ -36,7 +36,7 @@ class ProgressBar extends HTMLElement {
 
 
     static get observedAttributes() {
-        return ['status'];
+        return ['seconds'];
     }
 
     // Código HTML
