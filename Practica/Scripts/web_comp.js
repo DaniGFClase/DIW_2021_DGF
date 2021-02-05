@@ -102,14 +102,14 @@ class pantallJuego extends HTMLElement {
 
     // Se muestra el HTML por primera vez cuando se hay cargado el DOM
     connectedCallback() {
-        this.render(this.status);
+        this.insrtCo(this.status);
     }
 
     // Se llama cuando se modifica el valor de los atributos especificados en observedAttributes
     attributeChangedCallback(attr, oldVal, newVal) {
         if (attr == 'status' && oldVal != newVal) {
             this.status = newVal;
-            this.render(newVal);
+            this.insrtCo(newVal);
         }
     }
 
@@ -132,41 +132,42 @@ class pantallJuego extends HTMLElement {
     }
 
     // Código HTML
-    insrtCo(currentStatus) {
-            this.shadowRoot.innerHTML = `
-		<style>
-		  div {
-			display: inline-block;
-			color: #fff;
-			border-radius: 3px;
-			padding: 10px;
-			cursor:pointer;
-			outline:none;
-			animation-duration: 1s; 
-			animation-timing-function: ease-in;
-			background-color: #000;
-		  }
-		  div:active{ 
-			animation-name: anim; 
-		  }
-		  @keyframes anim { 
-			0% {transform: scale(1);} 
-			10%, 40% {transform: scale(0.7) rotate(-1.5deg);}  
-			100% {transform: scale(1) rotate(0);} 
-		  } 
-		  .neutral {
-			background-color: #888;
-		  }
-		  .danger {
-			background-color: #d66;
-		  }
-		  .success {
-			background-color: #3a6;
-		  }
-		</style>
-		<div id="buttonStatus" ${currentStatus ? `class="${currentStatus}"` : 'class="neutral"'}><slot></slot></div>
+    insrtCo() {
+        this.shadowRoot.innerHTML = `
+            <style>
+            #insrtC {
+              text-align: center;
+              font-family: 'Courier', monospace;
+              font-weight: 800;
+              line-height: 1.0;
+              letter-spacing: -0.03em;
+              transform: perspective(300px) scaleY(1.5) rotateX(-40deg);
+              transform-style: preserve-3d;
+              --layer-depth: 0.32em;
+              width: 100%;
+              height: 100%;
+              /*animacion*/
+              animation-name: spinner;
+              animation-timing-function: linear;
+              animation-iteration-count: infinite;
+              animation-duration: 5s;
+          }
+          
+          @keyframes spinner {
+              from {
+                  transform: rotateY(0deg);
+              }
+              to {
+                  transform: rotateY(-360deg);
+              }
+          }
+            </style>
+              <div id='insrtC' width="480" height="320">
+                      <h1>INSERT COIN</h1>
+              </div>
+          
 	  `;
-	}
+    }
 }
 
 window.customElements.define('wc-pantalla', pantallJuego);
