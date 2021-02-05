@@ -77,8 +77,7 @@ jueg = `
 class pantallJuego extends HTMLElement {
     constructor() {
         super();
-
-        // Creamos shadow DOM que a partir de ahora se puede acceder a través de shadowRoot
+        // Creamos shadow DOM que a partir de ahora se puede acceder a través de 
         this.attachShadow({ mode: 'open' });
 
         this.shadowRoot.addEventListener('click', () => {
@@ -87,28 +86,30 @@ class pantallJuego extends HTMLElement {
             let valores = Object.entries(opciones);
 
             // Se cambia el texto y esperamos un segundo
-            this.shadowRoot.querySelector("#buttonStatus").textContent = "Cambiando estado..."
+            this.boton.textContent = "Cambiando estado..."
 
             setTimeout(() => {
                 // Elegimos una opción al azar y se actualiza junto con su descripción
                 let opcionElegida = valores[Math.floor(Math.random() * valores.length)];
 
-                // Lo importante es que al cambiar status attributeChangedCallback muestra la página de nuevo con el atributo correspondiente
-                this.status = opcionElegida[0];
-                this.shadowRoot.querySelector("#buttonStatus").textContent = opcionElegida[1];
+                // Cambiamos solo el DOM asociado al botón
+                this.boton.className = opcionElegida[0];
+                this.boton.textContent = opcionElegida[1];
             }, 1000);
         });
     }
 
-    // Se muestra el HTML por primera vez cuando se hay cargado el DOM
     connectedCallback() {
-        this.insrtCo(this.status);
+        // Se representa el HTML de la propiedad template en el shadow DOM
+        this.insrtCo(this.getAttribute('status'));
+
+        // Guardamos un atributo con el botón
+        this.boton = this.shadowRoot.querySelector("#buttonStatus");
     }
 
     // Se llama cuando se modifica el valor de los atributos especificados en observedAttributes
     attributeChangedCallback(attr, oldVal, newVal) {
         if (attr == 'status' && oldVal != newVal) {
-            this.status = newVal;
             this.insrtCo(newVal);
         }
     }
@@ -118,18 +119,6 @@ class pantallJuego extends HTMLElement {
         return ['status'];
     }
 
-    // Getter y setter de status. Se accede cuando se cambia el valor de estos atributos o para obtenerlo
-    get status() {
-        return this.getAttribute('status');
-    }
-
-    set status(newVal) {
-        if (newVal == null || newVal === false || newVal === '') {
-            this.remove('status');
-        } else {
-            this.setAttribute('status', newVal);
-        }
-    }
 
     // Código HTML
     insrtCo() {
