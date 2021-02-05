@@ -80,7 +80,7 @@ class pantallJuego extends HTMLElement {
         // Creamos shadow DOM que a partir de ahora se puede acceder a través de 
         this.attachShadow({ mode: 'open' });
 
-        this.shadowRoot.addEventListener('click', () => {
+        document.querySelector('#instCoin').addEventListener('click', () => {
             // Creamos un objeto con todos los valores posibles y descripciones
             let opciones = { neutral: "Haz click para probar", danger: "Error", success: "Correcto" };
             let valores = Object.entries(opciones);
