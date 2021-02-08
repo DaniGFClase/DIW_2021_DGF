@@ -111,7 +111,6 @@
                              break;
                          case "w":
                              niv++;
-
                              if (niv > 7) {
                                  niv = 7;
                              }
@@ -255,11 +254,14 @@
                  collisionDetection();
                  ptosIA();
                  ptosIJ();
-                 ganar();
-
-                 //  console.log(niv);
                  //pto medio de la paleta
                  mdio();
+
+
+                 ganar();
+
+
+
 
                  //Rebotar arriba y abajo
                  if (y + dy > canvas.height - ballRadius || y + dy < ballRadius) {
@@ -333,16 +335,20 @@
                      console.log("J1 g");
                      clearInterval(juego);
 
-                     this.insrtCo(ganar1);
+                     ctx.clearRect(0, 0, canvas.width, canvas.height);
+                     ctx.font = "10px Arial";
+                     ctx.fillStyle = "white";
+                     ctx.fillText("GANA J1 PULSA R PARA ACABAR O A PARA VOLVER A EMPEZAR", (canvas.width / 2) - 170, canvas.height / 2);
 
 
                  } else if (ptos2 == 3) {
-                     mC.style.display = 'none';
-                     pF.style.display = 'block';
-                     pF.innerHTML = 'Tu ' + pF.innerHTML;
-
                      console.log("J2 g");
                      clearInterval(juego);
+
+                     ctx.clearRect(0, 0, canvas.width, canvas.height);
+                     ctx.font = "10px Arial";
+                     ctx.fillStyle = "white";
+                     ctx.fillText("GANA J2 PULSA R PARA ACABAR O A PARA VOLVER A EMPEZAR", (canvas.width / 2) - 170, canvas.height / 2);
                  }
              }
 
