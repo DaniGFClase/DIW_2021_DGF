@@ -9,11 +9,11 @@ paddleWidth -> ancho de la pala
 paddleY, paddle2Y -> posicion y de la pala
 up1Pressed, down1Pressed -> control de la pala
 ptos1, ptos2 -> puntuaciones
-*/
-var juego;
+
+// var juego;
 
 
-function empezar_Juego(niv, canvas) {
+function empezar_Juego(niv, canvas, juego) {
 
 
 
@@ -174,12 +174,17 @@ function empezar_Juego(niv, canvas) {
 
     function ganar() {
         if (ptos1 == 3) {
-            mC.style.display = 'none';
-            pF.style.display = 'block';
-            pF.innerHTML = 'J2 ' + pF.innerHTML;
-
             console.log("J1 g");
             clearInterval(juego);
+
+            var gan = `
+            <style>
+            </style>
+            <p>Gana J2</p>
+             `;
+            insrtCo(gan);
+
+
         } else if (ptos2 == 3) {
             mC.style.display = 'none';
             pF.style.display = 'block';
@@ -191,4 +196,4 @@ function empezar_Juego(niv, canvas) {
     }
 
     juego = setInterval(juego, 10);
-}
+}*/
