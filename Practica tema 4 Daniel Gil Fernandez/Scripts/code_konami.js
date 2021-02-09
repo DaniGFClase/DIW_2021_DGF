@@ -2,7 +2,7 @@ var code = "";
 
 var konam = " ArrowUp ArrowUp ArrowDown ArrowDown ArrowLeft ArrowRight ArrowLeft ArrowRight a w r";
 document.addEventListener('keydown', (event) => {
-    console.log(event.key);
+    //   console.log(event.key);
     code = code + " " + event.key;
 
     console.log(code);

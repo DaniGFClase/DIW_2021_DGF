@@ -16,12 +16,12 @@ document.addEventListener('keydown', (event) => {
         default:
             break;
     }
-    console.log(`key=${event.key},code=${event.code}`);
+    // console.log(`key=${event.key},code=${event.code}`);
 });
 
 document.addEventListener('keyup', (event) => {
     document.getElementById('arcade').style.backgroundImage = "url('./CSS/Imagenes/Pantalla.png')";
-    console.log(`key=${event.key},code=${event.code}`);
+    //  console.log(`key=${event.key},code=${event.code}`);
 
 });
 
@@ -43,5 +43,5 @@ document.addEventListener('keydown', (event) => {
         default:
             break;
     }
-    console.log(`key=${event.key},code=${event.code}`);
+    //  console.log(`key=${event.key},code=${event.code}`);
 });
