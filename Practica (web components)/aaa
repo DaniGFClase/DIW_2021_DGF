@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor de musica DGF</title>
+</head>
+
+<style>
+    html,
+    body {
+        height: 100%;
+        background-color: black;
+    }
+    
+    #canAct {
+        height: 10em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: context-menu !important;
+    }
+    
+    #ctrl {
+        display: flex;
+        justify-content: space-evenly;
+    }
+    
+    .btn,
+    .list,
+    #canAct {
+        cursor: pointer;
+        text-align: center;
+        background-color: white;
+        padding: 5px;
+    }
+    
+    .btn {
+        width: 33%;
+    }
+    
+    .play:hover {
+        background-color: rgb(32, 207, 32);
+    }
+</style>
+
+<body>
+</body>
+
+<script>
+    var list = ["Levitating.ogg", "All Star.ogg", "Bad_to_the_bone.mp3", "The-final-countdown-kazoo.mp3", "You_Are_The_Best_Around.mp3", "Never_Gonna_Give_You_Up.mp3", "Rock 'n roll part 2.ogg",
+        "A-ha-take-on-me.mp3", "Baby-im-yours.mp3", "Baker street.mp3", "Hooked on a Feeling.mp3", "I Need a Hero.mp3", "I-cant-get-no-satisfaction.mp3", "Mine.mp3", "Shadilay.mp3", "yoda death.mp3"
+    ];
+    var i = 0;
+    var dura, duraTot, tot;
+    var inter;
+
+    function principal() {
+        crearAudio();
+
+        cancion();
+        controles();
+        listaCanciones();
+    }
+
+
+
+    function selecCancion(i) {
+        var audio = document.getElementById("audio");
+        var canActual = document.getElementById("canAct");
+
+        if (i >= list.length) {
+            i = 0;
+            audio.src = "musica/" + list[i];
+        } else {
+            audio.src = "musica/" + list[i];
+        }
+
+
+        canActual.arch = list[i];
+
+        canActual.innerHTML = correTxt(list[i]);
+        canActual.appendChild(barProgreso());
+        canActual.appendChild(duracion());
+
+        for (let j = 0; j < list.length; j++) {
+            if (canActual.arch == document.getElementById(list[j]).id) {
+                document.getElementById(list[j]).style.backgroundColor = "grey";
+            } else {
+                document.getElementById(list[j]).style.backgroundColor = "white";
+            }
+        }
+
+
+        document.getElementById("duracion").innerHTML = '';
+
+    }
+
+
+    function play() {
+
+        var canActual = document.getElementById("canAct");
+        canActual.innerHTML = correTxt(list[i]);
+        canActual.appendChild(barProgreso());
+        canActual.appendChild(duracion());
+
+        tot = '0:00';
+
+
+        document.getElementById("audio").play();
+        dura = document.getElementById("audio").duration;
+
+        if (Math.round(dura % 60) < 10) {
+            duraTot = Math.floor(dura / 60) + ":0" + Math.round(dura % 60);
+        } else {
+
+            duraTot = Math.floor(dura / 60) + ":" + Math.round(dura % 60);
+        }
+
+        inter = setInterval(tiempoCanci, 1000);
+    }
+
+
+    function tiempoCanci() {
+        var c = document.getElementById('audio').currentTime;
+        document.getElementById("duracion").innerHTML = tot + "/" + duraTot;
+        document.getElementById('progreso').style.width = ((c / dura) * 100) + '%';
+
+        if (Math.round(c % 60) < 10) {
+            tot = (Math.floor(c / 60) + ":0" + Math.round(c % 60)).toString();
+        } else {
+
+            tot = Math.floor(c / 60) + ":" + Math.round(c % 60);
+        }
+
+
+        if (tot == duraTot) {
+            next();
+            myStopFunction();
+        }
+    }
+
+    function myStopFunction() {
+        clearInterval(inter);
+    }
+
+
+    function next() {
+        i++;
+        selecCancion(i);
+        // play();
+    }
+
+    function parar() {
+        var audio = document.getElementById("audio");
+        audio.pause();
+        myStopFunction();
+    }
+
+    function crearAudio() {
+        var ele = document.createElement('audio');
+        ele.id = 'audio';
+        ele.src = 'musica/' + list[i];
+
+        document.body.appendChild(ele);
+        return ele;
+    }
+
+
+    function cancion() {
+        var ele = document.createElement('div');
+        ele.style.border = '1px solid #000';
+        ele.id = "canAct";
+
+        document.body.appendChild(ele);
+        return ele;
+    }
+
+    function colores() {
+        var ele = document.createElement('div');
+        ele.style.border = '1px solid #000';
+        ele.id = "colores";
+
+        document.body.appendChild(ele);
+        return ele;
+    }
+
+    function duracion() {
+        var ele = document.createElement('div');
+        ele.style.border = '1px solid #000';
+        ele.id = "duracion";
+
+        return ele;
+    }
+
+    function barProgreso() {
+        var ele = document.createElement('div');
+        ele.style.height = '30px';
+        ele.style.width = '100%';
+        ele.id = "barProgreso";
+        ele.appendChild(progreso());
+
+        return ele;
+
+    }
+
+    function progreso() {
+        var ele = document.createElement('div');
+        ele.style.height = '10px';
+        ele.style.width = '0%';
+        ele.style.backgroundColor = "green";
+        ele.id = "progreso";
+
+        return ele;
+
+    }
+
+    function controles() {
+        var ele = document.createElement('div');
+        ele.style.border = '1px solid #000';
+        ele.id = "ctrl";
+
+        ele.appendChild(btnParar());
+        ele.appendChild(btnPlay());
+        ele.appendChild(btnNext());
+
+        document.body.appendChild(ele);
+        return ele;
+    }
+
+    function btnPlay() {
+        var ele = document.createElement('div');
+        ele.style.border = '1px solid #000';
+        ele.innerHTML = "Play";
+        ele.classList.add("btn", "play");
+
+        ele.addEventListener('click', play);
+        return ele;
+    }
+
+
+    function btnNext() {
+        var ele = document.createElement('div');
+        ele.style.border = '1px solid #000';
+        ele.innerHTML = "Next";
+        ele.classList.add("btn", "nxt");
+
+
+        ele.addEventListener('click', next);
+        return ele;
+    }
+
+    function btnParar() {
+        var ele = document.createElement('div');
+        ele.style.border = '1px solid #000';
+        ele.innerHTML = "Parar";
+        ele.classList.add("btn", "stop");
+
+        ele.addEventListener('click', parar);
+        return ele;
+    }
+
+
+    function listaCanciones() {
+        for (let j = 0; j < list.length; j++) {
+            var ele = canIndiv('div');
+            ele.id = list[j];
+            ele.classList.add("list", "cancion");
+            ele.num = j;
+            ele.style.border = '1px solid #000';
+
+            ele.innerHTML = correTxt(list[j]);
+            ele.addEventListener('click', clickCan);
+
+        }
+    }
+
+    function clickCan() {
+        i = this.num;
+        selecCancion(i);
+    }
+
+    function canIndiv(tipo) {
+        var ele = document.createElement(tipo);
+        document.body.appendChild(ele);
+        return ele;
+    }
+
+    function correTxt(text) {
+        var titulo;
+        titulo = text.replaceAll('_', ' ');
+        titulo = titulo.replaceAll('-', ' ');
+        titulo = titulo.replaceAll('.mp3', ' ');
+        titulo = titulo.replaceAll('.ogg', ' ');
+        return titulo;
+    }
+
+
+
+    window.onload = principal;
+</script>
+
+</html>
