@@ -111,7 +111,6 @@
  class pantallJuego extends HTMLElement {
      constructor() {
          super();
-         // Creamos shadow DOM que a partir de ahora se puede acceder a través de 
          this.attachShadow({ mode: 'open' });
 
          document.querySelector('#instCoin').addEventListener('click', () => {
@@ -138,7 +137,6 @@
                              if (progress < 2000) {
                                  start();
                              }
-                             console.log('x');
                              window.cancelAnimationFrame(anima);
                          }
 
@@ -151,11 +149,10 @@
 
                          setTimeout(() => {
                              this.insrtCo(jueg);
-                             console.log();
                              clearInterval(juego);
 
                              empezar_Juego(niv, this.shadowRoot.getElementById('myCanvas'), juego);
-                         }, 5000);
+                         }, 2500);
 
                          break;
 
@@ -180,7 +177,7 @@
                      default:
                          break;
                  }
-                 console.log(`key=${event.key},code=${event.code}`);
+                 //  console.log(`key=${event.key},code=${event.code}`);
              });
 
 
@@ -190,9 +187,6 @@
      connectedCallback() {
          this.insrtCo(insertCoin);
      }
-
-
-
 
      insrtCo(cod) {
          this.shadowRoot.innerHTML = cod;
