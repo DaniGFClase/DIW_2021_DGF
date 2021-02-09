@@ -64,6 +64,17 @@ body {
     outline: none;
 }
 
+#prev {
+    grid-row: 3/4;
+    grid-column: 7/8;
+    justify-self: center;
+    align-self: center;
+}
+
+#prev:hover {
+    cursor: pointer;
+}
+
 #next {
     grid-row: 3/4;
     grid-column: 10/11;

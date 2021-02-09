@@ -62,6 +62,41 @@
         </div>
 `;
 
+ const carg = `
+    <style>
+        .parent {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            grid-column-gap: 33px;
+            grid-row-gap: 0px;
+            border: black 1px solid;
+        }
+        
+        .caja {
+            display: flex;
+            align-items: flex-end;
+            grid-area: 3 / 1 / 4 / 7;
+        }
+        
+        #barra {
+            color: black;
+            background-color: white;
+            border-right: white thick solid;
+            height: 100%;
+            width: 0%;
+            transition: width 1s;
+        }
+    </style>
+
+    <div class="parent">
+        <div class="caja">
+            <div id="barra">LOADING...</div>
+        </div>
+    </div>
+
+`;
+
 
  const jueg = `
   <style>
@@ -88,11 +123,40 @@
              document.addEventListener('keydown', (event) => {
                  switch (event.key) {
                      case "a":
-                         this.insrtCo(jueg);
-                         console.log();
-                         clearInterval(juego);
+                         this.insrtCo(carg);
 
-                         empezar_Juego(niv, this.shadowRoot.getElementById('myCanvas'), juego);
+                         let init = null;
+                         var element = this.shadowRoot.getElementById('barra');
+                         let anima;
+
+                         console.log(this.shadowRoot.getElementById('barra'));
+
+                         function step(timestamp) {
+                             if (!init) init = timestamp;
+                             var progress = timestamp - init;
+                             element.style.width = '100%';
+                             if (progress < 2000) {
+                                 start();
+                             }
+                             console.log('x');
+                             window.cancelAnimationFrame(anima);
+                         }
+
+
+                         // Comienza la ejecución
+                         function start() {
+                             anima = window.requestAnimationFrame(step);
+                         }
+                         start();
+
+                         setTimeout(() => {
+                             this.insrtCo(jueg);
+                             console.log();
+                             clearInterval(juego);
+
+                             empezar_Juego(niv, this.shadowRoot.getElementById('myCanvas'), juego);
+                         }, 5000);
+
                          break;
 
                      case "r":

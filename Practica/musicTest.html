@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .parent {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        grid-column-gap: 33px;
+        grid-row-gap: 0px;
+        border: black 1px solid;
+    }
+    
+    .caja {
+        display: flex;
+        align-items: flex-end;
+        grid-area: 3 / 1 / 4 / 7;
+    }
+    
+    .barra {
+        background-color: chartreuse;
+        border-right: red thick solid;
+        height: 100%;
+        width: 0%;
+        transition: width 1s;
+    }
+</style>
+
+<body>
+
+    <div class="parent">
+        <div class="caja">
+            <div class="barra"></div>
+        </div>
+    </div>
+
+</body>
+
+
+<script>
+    var init = null;
+    var element = document.getElementsByClassName('barra');
+    var anima;
+
+    function step(timestamp) {
+        if (!init) init = timestamp;
+        var progress = timestamp - init;
+        element[0].style.width = '100%';
+        if (progress < 2000) {
+            start();
+        }
+        console.log('a');
+        window.cancelAnimationFrame(anima);
+    }
+
+
+    // Comienza la ejecución
+    function start() {
+        anima = window.requestAnimationFrame(step);
+    }
+
+    start();
+</script>
+
+</html>
