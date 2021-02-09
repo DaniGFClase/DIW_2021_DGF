@@ -1,4 +1,6 @@
-var list = ["Levitating.ogg", "All Star.ogg", "Bad_to_the_bone.mp3", "Is_not_unusual.mp3"];
+var list = ["Levitating.ogg", "All Star.ogg", "Bad_to_the_bone.mp3", "The-final-countdown-kazoo.mp3", "You_Are_The_Best_Around.mp3", "Rock 'n roll part 2.ogg",
+    "A-ha-take-on-me.mp3", "Baby-im-yours.mp3", "Baker street.mp3", "Hooked on a Feeling.mp3", "I Need a Hero.mp3", "I-cant-get-no-satisfaction.mp3", "Mine.mp3", "Shadilay.mp3"
+];
 var i = 0;
 var repro = false;
 
