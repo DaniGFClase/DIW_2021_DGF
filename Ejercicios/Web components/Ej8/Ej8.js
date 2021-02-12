@@ -17,7 +17,10 @@ class ProgressBar extends HTMLElement {
                 tiem++;
                 this.barra.textContent = tiem + "%";
                 this.barra.style.width = tiem + "%";
-            }, 1000);
+                if (tiem == 100) {
+                    clearInterval(this.interva);
+                }
+            }, this.seconds);
         });
 
         this.shadowRoot.querySelector("#botPar").addEventListener('click', () => {
