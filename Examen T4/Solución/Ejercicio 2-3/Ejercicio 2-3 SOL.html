@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 3</title>
+
+	<script src="semaforo.js"></script>
+	
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+			document.querySelector("button").addEventListener("click", e => document.querySelector("mi-semaforo").setAttribute("seconds", 1));
+		});
+	</script>
+</head>
+<body>
+	<mi-semaforo seconds="2"></mi-semaforo>
+	
+	<button>Reiniciar</button>
+</body>
+</html>

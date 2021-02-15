@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 1</title>
+	
+	<!-- Estilos en un fichero externo que no tendrás que modificar -->
+	<link rel="stylesheet" type="text/css" href="estilos1.css" />
+	
+	<script type="text/javascript">
+		document.addEventListener("DOMContentLoaded", () => {
+			// Constantes con la rotación y desplazamiento que hay que llevar a cabo
+			const DESP = 70;
+			const ROT = 360;
+		
+			//Para obtener el número de milisegundos en los que se ejecuta una animación
+			function getMilisegundos(){
+				return document.querySelector("input[name='segundos']").value*1000;
+			}
+			
+			//Esta función se encarga de desplazar la imagen			
+			function desplazar(){
+				var start = null;
+				var milisegundos = getMilisegundos();
+				var pelota = document.getElementById("pelota1");
+				
+				// Comprobación del número de milisegundos
+				if (!isNaN(milisegundos) && milisegundos > 0){	
+					
+					function step(timestamp) {
+						if (!start) start = timestamp;
+						
+						// Se calcula el tiempo que ha transcurrido
+						var progress = timestamp - start;
+						
+						// Se distribuye el desplazamiento en el tiempo de un segundo
+						pelota.style.setProperty("left", ((DESP * progress) / milisegundos) + "%");
+						pelota.style.setProperty("transform", "rotate" + "(" + ((ROT * progress) / milisegundos) + "deg)");
+						
+						if (progress < milisegundos) {
+							window.requestAnimationFrame(step);
+						} else {
+							// Cuando hayan transcurrido los milisegundos, se indica automáticamente el estilo final
+							// Esto evita valores con decimales como 70.00001
+							pelota.style.setProperty("left", DESP + "%");
+							pelota.style.setProperty("transform", "rotate(360deg)");
+						}	
+					}
+					
+					window.requestAnimationFrame(step);							
+			
+				} else {
+					alert("Debe introducir un número de segundos mayor que cero");
+				}							
+			}
+										
+			//Por defecto se activa la animación						
+			document.getElementById("pulsador").addEventListener("click", desplazar);
+				
+		});
+	</script>
+</head>
+<body>
+	<img id="pelota1" class="pelota" src="pelota1.png"/>
+	<div id="contenedor">
+		<div id="pulsador" class="activador"><span>A rodar</span></div>
+		<input type="text" name="segundos" size="5" class="activador"></input>
+	</div>	
+
+</body>
+</html>
