@@ -1,0 +1,140 @@
+/* IMPORTANTE para evitar descuadres */
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* Definimos un contenedor auxiliar para especificar el tamaño de la página y alineación */
+
+.menu {
+    display: flex;
+}
+
+
+/* En este caso se opta por la altura en em para que se adapte al tamaño de fuente de los elementos de la clase menú*/
+
+.topdown {
+    height: 6em;
+    border-radius: 1em;
+    border: 1px solid black;
+}
+
+
+/* Estilos de cada ítem de menú */
+
+.menu div.menu-item {
+    text-align: center;
+    width: 7rem;
+    padding: 0.25em;
+    background-color: blue;
+    color: lightgrey;
+}
+
+
+/* Display flex para alinear el menú en la cabecera */
+
+#cabecera {
+    background-color: lightblue;
+    margin: auto;
+    display: flex;
+    align-items: flex-end;
+}
+
+
+/* Importante definir la altura en el contenedor principal con alguna unidad que no sea porcentaje. Así se calculan bien las de los elementos internos */
+
+.main_container {
+    border: 1px solid black;
+    padding: 0.5rem;
+    height: 65vh;
+    box-shadow: 2px 2px 5px blue;
+    margin-top: 0.5rem;
+    display: flex;
+}
+
+
+/* Clase con borde rojo para las cajas */
+
+.caja {
+    border: 1px dotted red;
+}
+
+#izquierda {
+    flex-basis: 80%;
+    height: 100%;
+    margin-right: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+#derecha {
+    border: 1px solid black;
+    flex-basis: 20%;
+    height: 100%;
+}
+
+
+/* Altura de las cajas con contenido (flex-basis al ser el alto) */
+
+#caja_pequeña {
+    flex-basis: 30%;
+    margin-bottom: 0.5rem;
+}
+
+#caja_grande {
+    flex-basis: 70%;
+    display: flex;
+}
+
+
+/* Los artículos con otras noticias ocupan el espacio equitativamente */
+
+#caja_grande .contenido {
+    flex-grow: 1;
+}
+
+
+/* Estilos del pie de página */
+
+#pie {
+    margin-top: 0.5rem;
+}
+
+
+/* Como se puede observar, si el diseño es eficiente apenas hace falta cambiar propiedades */
+
+@media all and (max-width: 992px) {
+    /* Los artículos de la sección "caja pequeña" pasan a mostrarse de arriba a abajo */
+    #caja_grande {
+        flex-direction: column;
+    }
+    /* Para cumplir el espaciado del enunciado */
+    #caja_grande .contenido:first-of-type {
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media all and (max-width: 768px) {
+    /* Cambio de estilos del menú */
+    #cabecera {
+        align-items: center;
+        justify-content: center;
+    }
+    .menu {
+        flex-direction: column;
+    }
+}
+
+@media all and (max-width: 544px) {
+    /* Desparece la barra lateral y se ajusta el diseño de la sección izquierda */
+    #izquierda {
+        flex-grow: 1;
+        margin-right: 0;
+    }
+    #derecha {
+        display: none;
+    }
+}
