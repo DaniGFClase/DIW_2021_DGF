@@ -1,0 +1,20 @@
+.cajas {
+    border: 1px solid black;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.caja {
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    transition: transform 2s;
+}
+
+.caja:hover {
+    transform: rotate(270grad) scale(0.5, 0.5);
+}
