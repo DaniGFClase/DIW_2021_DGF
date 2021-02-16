@@ -2,9 +2,10 @@
     border: 1px solid black;
     width: 500px;
     height: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    align-items: center;
 }
 
 .caja {
@@ -16,5 +17,16 @@
 }
 
 .caja:hover {
-    transform: rotate(270grad) scale(0.5, 0.5);
+    transform: rotate(300grad) scale(0.5, 0.5);
+    background-color: blue;
+    animation: cambioCol 2s;
+}
+
+@keyframes cambioCol {
+    from {
+        background-color: red;
+    }
+    to {
+        background-color: blue;
+    }
 }
