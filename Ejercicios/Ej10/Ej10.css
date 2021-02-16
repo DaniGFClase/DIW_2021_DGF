@@ -1,0 +1,10 @@
+.pelota {
+    width: 6rem;
+    height: 6rem;
+    position: relative;
+    transition: transform 2s;
+}
+
+.pelota:hover {
+    transform: translateX(500px) rotate(360deg);
+}
