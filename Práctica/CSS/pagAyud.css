@@ -23,12 +23,24 @@
 
 /* Estilos de cada ítem de menú */
 
+.menu div.menu-item:last-child {
+    border-top-right-radius: 1em;
+}
+
 .menu div.menu-item {
     text-align: center;
     width: 7rem;
     padding: 0.25em;
-    background-color: blue;
+    background-color: rgb(56, 56, 65);
     color: lightgrey;
+}
+
+.menu div:hover {
+    transform: none;
+    border-bottom: rgb(38, 0, 255) solid 2px;
+    z-index: 1;
+    padding: 2px;
+    cursor: pointer;
 }
 
 
@@ -38,7 +50,8 @@
     background-color: lightblue;
     margin: auto;
     display: flex;
-    align-items: flex-end;
+    align-items: baseline;
+    justify-content: flex-end;
 }
 
 
