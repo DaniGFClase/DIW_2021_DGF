@@ -61,17 +61,12 @@
     border: 1px solid black;
     padding: 0.5rem;
     height: 65vh;
-    box-shadow: 2px 2px 5px blue;
     margin-top: 0.5rem;
     display: flex;
 }
 
 
 /* Clase con borde rojo para las cajas */
-
-.caja {
-    border: 1px dotted red;
-}
 
 #izquierda {
     flex-basis: 80%;
