@@ -5,15 +5,20 @@
     <title>Examen de DIW - Ejercicio 3</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="CSS/pagAyud.css" rel="stylesheet" type="text/css" />
-    <link href="CSS/prueba.css" rel="stylesheet" type="text/css" />
+    <link href="CSS/practicaT5_DGF.css" rel="stylesheet" type="text/css" />
     <link href="CSS/cuboGira.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
     <div class="centrado">
         <header id="cabecera" class="topdown">
-            <!-- Menú de la página -->
+            <picture>
+                <source media="(min-width:650px)" srcset="img_pink_flowers.jpg">
+                <source media="(min-width:465px)" srcset="img_white_flower.jpg">
+                <img src="img_orange_flowers.jpg" alt="Flowers" style="width:auto;">
+            </picture>
+
+
             <nav class="menu">
                 <div class="menu-item">Inicio</div>
                 <div class="menu-item">Noticias</div>
@@ -21,16 +26,16 @@
             </nav>
         </header>
 
-        <!-- Cuerpo de la página -->
+
         <main id="contenedor" class="main_container">
-            <!-- Sección con noticias -->
+
             <section id="izquierda">
-                <!-- Artículo con noticia más importante -->
+
                 <article id="caja_pequeña" class="caja">
                     <h2>Top tier campeones</h2>
                 </article>
                 <section id="caja_grande">
-                    <!-- Otros artículos con noticias -->
+
                     <article class="contenido caja">
                         <div class="roles">
                             <div class="linea topLan" onclick="tops()">
@@ -65,7 +70,7 @@
                     </article>
                 </section>
             </section>
-            <!-- Barra lateral -->
+
             <aside id="derecha">
                 <audio controls autoplay>
                     <source src="./CSS/Audio/EvaB_more.ogg" type="audio/ogg">
@@ -87,7 +92,6 @@
             </aside>
         </main>
 
-        <!-- Pie de página -->
         <footer id="pie" class="topdown">
             Menú auxiliar, mapa de navegación o información legal
         </footer>
@@ -95,36 +99,7 @@
 
 </body>
 
-<script src="prueba.js"></script>
-<script>
-    var cube = document.querySelector('.cube');
-    var radioGroup = document.querySelector('.radio-group');
-    var currentClass = '';
-    var inter;
-    var cont = 0;
-    var partes = ['front', 'right', 'back', 'left', 'top', 'bottom'];
-
-    function girar() {
-
-        inter = setInterval(() => {
-            //  console.log(cont);
-            //   var checkedRadio = radioGroup.querySelector(':checked');
-            var showClass = 'show-' + partes[cont];
-            cont++;
-            if (currentClass) {
-                cube.classList.remove(currentClass);
-            }
-            cube.classList.add(showClass);
-            currentClass = showClass;
-            if (cont == partes.length) {
-                cont = 0;
-            }
-        }, 1000);
-
-
-    }
-
-    window.onload = girar;
-</script>
+<script src="JS/practicaT5_DGF.js"></script>
+<script src="JS/girarCubo.js"></script>
 
 </html>
