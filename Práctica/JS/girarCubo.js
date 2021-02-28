@@ -1,5 +1,4 @@
 var cubo = document.querySelector('.cubo');
-var radioGroup = document.querySelector('.radio-group');
 var posiAct = '';
 var inter;
 var cont = 0;
@@ -19,8 +18,6 @@ function girar() {
             cont = 0;
         }
     }, 1000);
-
-
 }
 
 window.onload = girar;

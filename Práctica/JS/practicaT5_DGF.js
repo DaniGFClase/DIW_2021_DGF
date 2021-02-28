@@ -8,7 +8,7 @@ function tops() {
     pjs.innerHTML =
         `
         <div class="videoNor">
-            <video width="320" height="240" controls>
+            <video width="320" height="240" controls loop>
                 <source src="CSS/Videos/Sion.mp4" type="video/mp4">
                 <source src="SS/Videos/Sion.ogv" type="video/ogv">
             </video>
@@ -24,7 +24,7 @@ function mids() {
     console.log(pjs);
     pjs.innerHTML =
         `       <div class="videoNor">
-        <video width="320" height="240" controls>
+        <video width="320" height="240" controls loop>
             <source src="CSS/Videos/Akali.mp4" type="video/mp4">
             <source src="SS/Videos/Akali.ogv" type="video/ogv">
         </video>
@@ -33,14 +33,12 @@ function mids() {
         <iframe width="320" height="240" src="https://www.youtube.com/embed/BuGd-85IoRY?autoplay=1&mute=1"> </iframe>
     </div>`;
 }
-//https: //www.youtube.com/watch?v=BuGd-85IoRY
-
 
 function jngls() {
     console.log(pjs);
     pjs.innerHTML =
         `    <div class="videoNor">
-        <video width="320" height="240" controls>
+        <video width="320" height="240" controls loop>
             <source src="CSS/Videos/Ayuso.mp4" type="video/mp4">
             <source src="SS/Videos/Ayuso.ogv" type="video/ogv">
         </video>
@@ -56,7 +54,7 @@ function bots() {
     console.log(pjs);
     pjs.innerHTML =
         `     <div class="videoNor">
-        <video width="320" height="240" controls>
+        <video width="320" height="240" controls loop>
             <source src="CSS/Videos/Senna.mp4" type="video/mp4">
             <source src="SS/Videos/Senna.ogv" type="video/ogv">
         </video>
@@ -71,7 +69,7 @@ function sups() {
     pjs.innerHTML =
         `
         <div class="videoNor">
-        <video width="320" height="240" controls>
+        <video width="320" height="240" controls loop>
             <source src="CSS/Videos/Yuumi.mp4" type="video/mp4">
             <source src="SS/Videos/Yuumi.ogv" type="video/ogv">
         </video>
