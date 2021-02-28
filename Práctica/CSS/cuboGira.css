@@ -6,14 +6,14 @@ body {
     font-family: sans-serif;
 }
 
-.scene {
+.espacioCubo {
     width: 200px;
     height: 200px;
     margin: 80px;
     perspective: 400px;
 }
 
-.cube {
+.cubo {
     width: 200px;
     height: 200px;
     position: relative;
@@ -22,31 +22,31 @@ body {
     transition: transform 1s;
 }
 
-.cube.show-front {
+.cubo.giroDelante {
     transform: translateZ(-100px) rotateY( 0deg);
 }
 
-.cube.show-right {
+.cubo.giroDerecha {
     transform: translateZ(-100px) rotateY( -90deg);
 }
 
-.cube.show-back {
+.cubo.giroAtras {
     transform: translateZ(-100px) rotateY(-180deg);
 }
 
-.cube.show-left {
+.cubo.giroIzquierda {
     transform: translateZ(-100px) rotateY( 90deg);
 }
 
-.cube.show-top {
+.cubo.giroArriba {
     transform: translateZ(-100px) rotateX( -90deg);
 }
 
-.cube.show-bottom {
+.cubo.giroAbajo {
     transform: translateZ(-100px) rotateX( 90deg);
 }
 
-.cube__face {
+.cuboCaras {
     position: absolute;
     width: 200px;
     height: 200px;
@@ -61,32 +61,32 @@ body {
     background-position: center;
 }
 
-.cube__face--front {
+.delante {
     background-image: url(Fotos/Mas.png);
     transform: rotateY( 0deg) translateZ(100px);
 }
 
-.cube__face--right {
+.derecha {
     background-image: url(Fotos/Kali.jpg);
     transform: rotateY( 90deg) translateZ(100px);
 }
 
-.cube__face--back {
+.atras {
     background-image: url(Fotos/Senna.jpg);
     transform: rotateY(180deg) translateZ(100px);
 }
 
-.cube__face--left {
+.izquierda {
     background-image: url(Fotos/Yupi.jpg);
     transform: rotateY(-90deg) translateZ(100px);
 }
 
-.cube__face--top {
+.arriba {
     background-image: url(Fotos/Sion_0.jpg);
     transform: rotateX( 90deg) translateZ(100px);
 }
 
-.cube__face--bottom {
+.abajo {
     background-image: url(Fotos/yasuo.jpg);
     transform: rotateX(-90deg) translateZ(100px);
 }

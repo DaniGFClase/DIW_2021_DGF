@@ -1,23 +1,21 @@
-var cube = document.querySelector('.cube');
+var cubo = document.querySelector('.cubo');
 var radioGroup = document.querySelector('.radio-group');
-var currentClass = '';
+var posiAct = '';
 var inter;
 var cont = 0;
-var partes = ['front', 'right', 'back', 'left', 'top', 'bottom'];
+var giro = ['giroDelante', 'giroDerecha', 'giroAtras', 'giroIzquierda', 'giroArriba', 'giroAbajo'];
 
 function girar() {
 
     inter = setInterval(() => {
-        //  console.log(cont);
-        //   var checkedRadio = radioGroup.querySelector(':checked');
-        var showClass = 'show-' + partes[cont];
+        var girarCara = giro[cont];
         cont++;
-        if (currentClass) {
-            cube.classList.remove(currentClass);
+        if (posiAct) {
+            cubo.classList.remove(posiAct);
         }
-        cube.classList.add(showClass);
-        currentClass = showClass;
-        if (cont == partes.length) {
+        cubo.classList.add(girarCara);
+        posiAct = girarCara;
+        if (cont == giro.length) {
             cont = 0;
         }
     }, 1000);
