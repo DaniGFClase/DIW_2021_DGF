@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="CSS/pagAyud.css" rel="stylesheet" type="text/css" />
     <link href="CSS/prueba.css" rel="stylesheet" type="text/css" />
+    <link href="CSS/cuboGira.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -26,7 +27,7 @@
             <section id="izquierda">
                 <!-- Artículo con noticia más importante -->
                 <article id="caja_pequeña" class="caja">
-                    <h2>Titular o noticia más importante</h2>
+                    <h2>Top tier campeones</h2>
                 </article>
                 <section id="caja_grande">
                     <!-- Otros artículos con noticias -->
@@ -66,7 +67,23 @@
             </section>
             <!-- Barra lateral -->
             <aside id="derecha">
-                Banner con publicidad
+                <audio controls autoplay>
+                    <source src="./CSS/Audio/EvaB_more.ogg" type="audio/ogg">
+                    <source src="./CSS/Audio/EvaB_more.mp3" type="audio/mpeg">
+                  </audio>
+
+                <div class="cuboGira">
+                    <div class="scene">
+                        <div class="cube">
+                            <div class="cube__face cube__face--front"></div>
+                            <div class="cube__face cube__face--back"></div>
+                            <div class="cube__face cube__face--right"></div>
+                            <div class="cube__face cube__face--left"></div>
+                            <div class="cube__face cube__face--top"></div>
+                            <div class="cube__face cube__face--bottom"></div>
+                        </div>
+                    </div>
+                </div>
             </aside>
         </main>
 
@@ -79,5 +96,35 @@
 </body>
 
 <script src="prueba.js"></script>
+<script>
+    var cube = document.querySelector('.cube');
+    var radioGroup = document.querySelector('.radio-group');
+    var currentClass = '';
+    var inter;
+    var cont = 0;
+    var partes = ['front', 'right', 'back', 'left', 'top', 'bottom'];
+
+    function girar() {
+
+        inter = setInterval(() => {
+            //  console.log(cont);
+            //   var checkedRadio = radioGroup.querySelector(':checked');
+            var showClass = 'show-' + partes[cont];
+            cont++;
+            if (currentClass) {
+                cube.classList.remove(currentClass);
+            }
+            cube.classList.add(showClass);
+            currentClass = showClass;
+            if (cont == partes.length) {
+                cont = 0;
+            }
+        }, 1000);
+
+
+    }
+
+    window.onload = girar;
+</script>
 
 </html>

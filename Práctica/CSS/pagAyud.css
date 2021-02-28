@@ -82,6 +82,9 @@
     border: 1px solid black;
     flex-basis: 20%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 

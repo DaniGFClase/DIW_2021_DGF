@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .vidArea {
+        border: black 1px solid;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .videoNor {
+        border: blue dotted 1px;
+    }
+</style>
+
+<body>
+    <div class="vidArea">
+        <div class="videoNor">
+            <video width="320" height="240" controls>
+            <source src="CSS/Videos/Sion.mp4" type="video/mp4">
+            <source src="SS/Videos/Sion.ogv" type="video/ogv">
+          </video>
+        </div>
+        <div class="videoYt">
+            <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1" width="320" height="240">
+        </iframe>
+        </div>
+    </div>
+
+</body>
+
+</html>

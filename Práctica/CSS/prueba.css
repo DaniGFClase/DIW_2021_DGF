@@ -130,6 +130,10 @@ body {
     margin-top: 0em;
     border: 1px white solid;
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .linea,
@@ -145,5 +149,7 @@ body {
 .menu li:hover {
     cursor: pointer;
 }
+
+.vidArea {}
 
 @media only screen and (min-width: 768px) {}
