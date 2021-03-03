@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej 2 Daniel Gil Fernández</title>
+    <link rel="stylesheet" href="Ejercicio2.css">
+</head>
+
+<body>
+    <div class="cuadrado"></div>
+    <br></br>
+    <button class="btn" onclick="parar()">Parar animación</button>
+</body>
+
+<script>
+    var cuad = document.getElementsByClassName("cuadrado");
+
+    function parar() {
+        cuad[0].style.animationPlayState = "paused";
+    }
+</script>
+
+</html>
